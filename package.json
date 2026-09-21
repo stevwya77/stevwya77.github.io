@@ -2,11 +2,7 @@
   "name": "jcard-portfolio",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@12.4.1",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]},
+  "packageManager": "pnpm@9.15.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
