@@ -1,0 +1,64 @@
+/*
+ * Design tokens. Every color, size and measurement on the site comes from here.
+ * Change a value once and it changes everywhere.
+ */
+@layer reset, tokens, base;
+
+@layer tokens {
+  :root {
+    /* ── Palette: solarpunk daylight ─────────────────────────── */
+    --ground: #d4e1cc;   /* sunlit meadow haze: the "desk" the tape lies on */
+    --paper: #eef3e6;    /* J-card stock, faintly green */
+    --paper-2: #e3ebd8;  /* inside of the card, a shade deeper */
+    --ink: #15271d;      /* forest ink: all text */
+    --ink-soft: #4b5f51; /* secondary text */
+    --moss: #2f5f3f;     /* links, focus rings */
+    --solar: #e5b33a;    /* sun gold: the one warm accent */
+    --sky: #4c9da1;      /* verdigris sky */
+    --orchid: #a88acd;   /* Y2K iridescent tint, use sparingly */
+    --fold: color-mix(in oklab, var(--ink) 28%, transparent); /* dashed fold lines */
+
+    /* Y2K pearl: the chrome/iridescent finish you'll use in Step 4 */
+    --pearl: linear-gradient(115deg, #d3ebe4 0%, #e6d8f1 38%, #f5e7b8 68%, #cfe8e3 100%);
+
+    /* ── J-card geometry, in real inches ──────────────────────
+     * A standard cassette J-card is 4in tall. Laid flat, the outside reads
+     * back flap (0.625in) | spine (0.5in) | front cover (2.5in).
+     * --in is how many screen pixels one inch becomes: it scales to fit the
+     * viewport height and width, capped so it never gets comically large.
+     */
+    --in: min(calc(86svh / 4), calc((100vw - 2rem) / 3.625), 13.5rem);
+    --jc-height: 4;
+    --jc-flap: 0.625;
+    --jc-spine: 0.5;
+    --jc-front: 2.5;
+
+    /* ── Type ─────────────────────────────────────────────────
+     * --font-display / --font-jp / --font-body / --font-mono are defined
+     * by Astro's Fonts API (see astro.config.mjs), not here.
+     */
+    --text-xs: 0.6875rem;  /* 11px: eyebrows, catalog codes */
+    --text-sm: 0.8125rem;  /* 13px: meta, stacks */
+    --text-md: 1rem;       /* 16px: body */
+    --text-lg: 1.25rem;    /* 20px: track titles */
+    --text-xl: 1.75rem;    /* 28px: section heads */
+    --tracking-caps: 0.14em;
+
+    /* ── Space ──────────────────────────────────────────────── */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+
+    --shadow-lift: 0 1px 0 color-mix(in oklab, var(--ink) 10%, transparent),
+      0 18px 40px -18px color-mix(in oklab, var(--moss) 55%, transparent);
+  }
+
+  /* TODO(you) — Step 7: a night palette ("Side B after dark").
+   * Redefine only the color tokens above inside:
+   * @media (prefers-color-scheme: dark) { :root { ... } }
+   */
+}

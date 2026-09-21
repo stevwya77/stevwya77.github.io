@@ -1,0 +1,48 @@
+---
+/**
+ * The cover art square on the front panel.
+ * TODO(you) — Step 5: replace this placeholder with your own solarpunk scene.
+ * Options, from easiest to most ambitious:
+ *   1. An image: drop a file in src/assets/ and use <Image /> from 'astro:assets'.
+ *   2. Layered CSS: gradients for sky, circles for the sun, blurred shapes for canopy.
+ *   3. A <canvas> island that draws slowly drifting pollen or light rays.
+ */
+---
+
+<figure class="art" aria-label="Cover art placeholder">
+  <div class="sun"></div>
+  <div class="hill"></div>
+  <figcaption class="eyebrow">Cover art · Step 5</figcaption>
+</figure>
+
+<style>
+  .art {
+    position: relative;
+    overflow: hidden;
+    min-height: 0;
+    background: linear-gradient(to bottom, var(--sky), var(--paper) 78%);
+  }
+  .sun {
+    position: absolute;
+    width: 34%;
+    aspect-ratio: 1;
+    left: 50%;
+    top: 30%;
+    translate: -50% 0;
+    border-radius: 50%;
+    background: var(--solar);
+  }
+  .hill {
+    position: absolute;
+    inset: auto -10% -40% -10%;
+    height: 70%;
+    border-radius: 50% 50% 0 0;
+    background: var(--moss);
+  }
+  figcaption {
+    position: absolute;
+    left: var(--space-2);
+    bottom: var(--space-2);
+    color: var(--paper);
+  }
+</style>

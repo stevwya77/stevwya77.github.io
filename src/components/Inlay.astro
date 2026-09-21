@@ -1,0 +1,151 @@
+---
+/**
+ * The inside of the J-card, unfolded: Side A, Side B, liner notes, credits.
+ * On wide screens it's one sheet with dashed fold lines; on phones the panels stack.
+ */
+import { getCollection } from 'astro:content';
+import Tracklist from './Tracklist.astro';
+import { site } from '@/data/site';
+
+const all = await getCollection('tracks', ({ data }) => !data.draft);
+const bySide = (side: 'A' | 'B') =>
+  all.filter((t) => t.data.side === side).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="inlay" aria-label="Work and about">
+  <div class="panel" id="side-a">
+    <Tracklist side="A" tracks={bySide('A')} blurb="Selected work. The projects I'd play first." />
+  </div>
+
+  <div class="panel" id="side-b">
+    <Tracklist side="B" tracks={bySide('B')} blurb="Experiments, toys and side quests." />
+  </div>
+
+  <div class="panel" id="notes">
+    <h2 class="panel__head">
+      <span>Liner notes</span>
+      <span class="jp">ライナーノーツ</span>
+    </h2>
+    <div class="prose">
+      <!-- TODO(you) — Step 3: your about section. 2–3 short paragraphs. -->
+      <p>
+        Who you are, what you build, and what you care about. Write it the way you'd
+        explain your work to a friend who doesn't code.
+      </p>
+      <p>What you're looking for next, and what makes you good to work with.</p>
+    </div>
+  </div>
+
+  <div class="panel" id="credits">
+    <h2 class="panel__head">
+      <span>Credits</span>
+      <span class="jp">クレジット</span>
+    </h2>
+    <dl class="credits">
+      <div><dt class="eyebrow">Recorded in</dt><dd>TypeScript</dd></div>
+      <div><dt class="eyebrow">Mastered with</dt><dd>Astro</dd></div>
+      <div><dt class="eyebrow">Based in</dt><dd>{site.location}</dd></div>
+      <div>
+        <dt class="eyebrow">Contact</dt>
+        <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+      </div>
+      <div>
+        <dt class="eyebrow">Elsewhere</dt>
+        <dd class="links">
+          {site.links.map((l) => <a href={l.href}>{l.label}</a>)}
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<style>
+  .inlay {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 72rem;
+    margin-block-start: var(--space-12);
+    margin-inline: auto;
+    background: var(--paper-2);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .panel {
+    display: grid;
+    gap: var(--space-4);
+    align-content: start;
+    padding: var(--space-8);
+    scroll-margin-block-start: var(--space-8);
+  }
+  /* Fold lines: vertical between columns, horizontal between rows. */
+  .panel:nth-child(even) {
+    border-inline-start: 1px dashed var(--fold);
+  }
+  .panel:nth-child(n + 3) {
+    border-block-start: 1px dashed var(--fold);
+  }
+
+  .panel__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-3);
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: var(--text-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .panel__head .jp {
+    font-size: var(--text-sm);
+    color: var(--moss);
+    text-transform: none;
+  }
+
+  .prose {
+    display: grid;
+    gap: var(--space-4);
+    max-width: 62ch;
+  }
+
+  .credits {
+    display: grid;
+    gap: var(--space-3);
+  }
+  .credits > div {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: var(--space-3);
+    align-items: baseline;
+  }
+  .credits dt {
+    color: var(--ink-soft);
+  }
+  .credits a {
+    color: var(--moss);
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+  }
+
+  @media (max-width: 48rem) {
+    .inlay {
+      grid-template-columns: 1fr;
+    }
+    .panel {
+      padding: var(--space-6) var(--space-4);
+    }
+    .panel:nth-child(even) {
+      border-inline-start: 0;
+    }
+    .panel:nth-child(n + 2) {
+      border-block-start: 1px dashed var(--fold);
+    }
+    .credits > div {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+    }
+  }
+</style>

@@ -1,0 +1,35 @@
+---
+import { Font } from 'astro:assets';
+import '@/styles/tokens.css';
+import '@/styles/global.css';
+import Grain from '@/components/deco/Grain.astro';
+import { site } from '@/data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${site.name} · ${site.title}`,
+  description = `${site.name}, ${site.title.toLowerCase()} in ${site.location}. Selected work, side projects and liner notes.`,
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <Font cssVariable="--font-display" preload />
+    <Font cssVariable="--font-body" preload />
+    <Font cssVariable="--font-jp" />
+    <Font cssVariable="--font-mono" />
+  </head>
+  <body>
+    <slot />
+    <Grain />
+  </body>
+</html>

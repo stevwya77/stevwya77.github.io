@@ -1,0 +1,66 @@
+---
+/**
+ * One page per project, generated from src/content/tracks/*.md.
+ * TODO(you) — Step 2: style this page like the inside of a single-track insert.
+ */
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Base from '@/layouts/Base.astro';
+
+export const getStaticPaths = (async () => {
+  const tracks = await getCollection('tracks', ({ data }) => !data.draft);
+  return tracks.map((track) => ({ params: { id: track.id }, props: { track } }));
+}) satisfies GetStaticPaths;
+
+const { track } = Astro.props;
+const { Content } = await render(track);
+const { title, side, order, year, stack, links, summary } = track.data;
+---
+
+<Base title={`${side}${order} · ${title}`} description={summary}>
+  <main class="track">
+    <a class="eyebrow back" href="/">← Back to the tape</a>
+    <header>
+      <p class="eyebrow">Side {side} · Track {order} · {year}</p>
+      <h1>{title}</h1>
+      <p class="eyebrow">{stack.join(' · ')}</p>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+    <p class="links">
+      {links.live && <a href={links.live}>Live</a>}
+      {links.repo && <a href={links.repo}>Source</a>}
+    </p>
+  </main>
+</Base>
+
+<style>
+  .track {
+    display: grid;
+    gap: var(--space-6);
+    max-width: 44rem;
+    margin-inline: auto;
+    padding: var(--space-8);
+    background: var(--paper);
+    box-shadow: var(--shadow-lift);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: var(--text-xl);
+    text-transform: uppercase;
+  }
+  .prose {
+    display: grid;
+    gap: var(--space-4);
+  }
+  .back,
+  .links a {
+    color: var(--moss);
+  }
+  .links {
+    display: flex;
+    gap: var(--space-4);
+  }
+</style>

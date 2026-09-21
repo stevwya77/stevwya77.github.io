@@ -1,0 +1,80 @@
+/* Global styles. Component-specific styles live inside each .astro file. */
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  body, h1, h2, h3, p, ol, ul, dl, dd, figure {
+    margin: 0;
+  }
+  ol, ul {
+    padding: 0;
+    list-style: none;
+  }
+  img, svg {
+    display: block;
+    max-width: 100%;
+  }
+  a {
+    color: inherit;
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100svh;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    line-height: 1.55;
+    padding-inline: var(--space-4);
+    padding-block: var(--space-8) var(--space-12);
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--moss);
+    outline-offset: 3px;
+  }
+
+  /* Small caps-style labels: catalog codes, "SIDE A", spec lines. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+  }
+
+  /* Katakana subtitles. */
+  .jp {
+    font-family: var(--font-jp);
+    letter-spacing: 0.04em;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

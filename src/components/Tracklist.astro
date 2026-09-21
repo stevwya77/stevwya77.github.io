@@ -1,0 +1,107 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  side: 'A' | 'B';
+  blurb: string;
+  tracks: CollectionEntry<'tracks'>[];
+}
+
+const { side, blurb, tracks } = Astro.props;
+const sideJp = side === 'A' ? 'サイドＡ' : 'サイドＢ';
+---
+
+<div class="side">
+  <h2 class="side__head">
+    <span class="eyebrow">Side</span>
+    <span class="side__letter">{side}</span>
+    <span class="jp side__jp">{sideJp}</span>
+  </h2>
+  <p class="side__blurb">{blurb}</p>
+
+  <ol class="tracks">
+    {tracks.map((t) => (
+      <li class="track">
+        <a class="track__row" href={`/tracks/${t.id}/`}>
+          <span class="track__code">{side}{t.data.order}</span>
+          <span class="track__title">{t.data.title}</span>
+          <span class="track__year">{t.data.year}</span>
+        </a>
+        <p class="track__summary">{t.data.summary}</p>
+        {t.data.stack.length > 0 && (
+          <p class="track__stack eyebrow">{t.data.stack.join(' · ')}</p>
+        )}
+      </li>
+    ))}
+  </ol>
+</div>
+
+<style>
+  .side {
+    display: grid;
+    gap: var(--space-4);
+    align-content: start;
+  }
+  .side__head {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-weight: 400;
+  }
+  .side__letter {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    line-height: 1;
+  }
+  .side__jp {
+    font-size: var(--text-sm);
+    color: var(--moss);
+  }
+  .side__blurb {
+    color: var(--ink-soft);
+    max-width: 40ch;
+  }
+
+  .tracks {
+    display: grid;
+  }
+  .track {
+    display: grid;
+    gap: var(--space-1);
+    padding-block: var(--space-3);
+    border-block-start: 1px solid var(--fold);
+  }
+
+  /* Code | title | year, the way a real tracklist lines up. */
+  .track__row {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    align-items: baseline;
+    gap: var(--space-3);
+    text-decoration: none;
+  }
+  .track__row:hover .track__title {
+    text-decoration: underline;
+    color: var(--moss);
+  }
+  .track__code,
+  .track__year {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+  }
+  .track__title {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  .track__summary,
+  .track__stack {
+    padding-inline-start: calc(2.5rem + var(--space-3));
+    color: var(--ink-soft);
+  }
+  .track__summary {
+    font-size: var(--text-sm);
+  }
+</style>
