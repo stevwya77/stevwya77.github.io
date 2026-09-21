@@ -8,8 +8,8 @@ const local = fontProviders.local();
 const dir = './src/assets/fonts';
 
 export default defineConfig({
-  // TODO(you): set this to your real domain once you deploy (Step 8).
-  site: 'https://example.com',
+  // Deployed Domain.
+  site: 'https://stevwya77.github.io',
 
   fonts: [
     {
