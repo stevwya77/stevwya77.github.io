@@ -3,6 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@12.4.1",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]},
   "private": true,
   "scripts": {
     "dev": "astro dev",
