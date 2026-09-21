@@ -1,38 +1,30 @@
-name: Deploy to Github pages
+name: Deploy to GitHub Pages
 
 on:
-  push: 
+  push:
     branches: [main]
   workflow_dispatch:
 
-# Grant specific permissions to the auto-generated GITHUB_TOKEN
 permissions:
-    contents: read     # Read access to pull repository code
-    pages: write        # Write access to deploy to GitHub Pages
-    id-token: write     # Enables OIDC token generation required for secure Pages deployment
-
-# Prevents concurrent deployments from interfering with each other
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-    # Build the website artifacts
   build:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - uses: actions/checkout@v7
       - uses: withastro/action@v6
         with:
           node-version: 24
 
-    # Publish the site to GitHub Pages
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    steps: 
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v5
