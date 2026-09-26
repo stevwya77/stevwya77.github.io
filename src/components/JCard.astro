@@ -6,6 +6,7 @@
 import { site } from '@/data/site';
 import CoverArt from './CoverArt.astro';
 import Starburst from './deco/Starburst.astro';
+import Record from './StatusSticker.astro';
 
 const sections = [
   { href: '#side-a', label: 'Side A' },
@@ -47,6 +48,7 @@ const sections = [
       <p class="role">
         <span>{site.title}</span>
         <span class="jp">{site.titleJp}</span>
+        <span>{site.status}</span>
       </p>
     </div>
 
