@@ -1,6 +1,6 @@
 /**
  * Everything printed on the outside of the J-card lives here.
- * TODO(you) — Step 1: replace every placeholder with your own details.
+ * 
  */
 
 export interface SiteLink {
@@ -10,17 +10,18 @@ export interface SiteLink {
 
 export interface SiteConfig {
   name: string;
-  /** Katakana (or any subtitle) printed under your name, Macroblank-style. */
+  /** Katakana/subtitle printed under name */
   nameJp: string;
-  /** The "album title": your role or what you do. */
+  /** The "album title": role */
   title: string;
   titleJp: string;
-  /** Cassette catalog number, printed on the spine. Make it yours: initials + number. */
+  /** Cassette catalog number on the spine */
   catalog: string;
   year: number;
   location: string;
   email: string;
   links: SiteLink[];
+  status: 'open-to-work' | 'freelance' | 'not-looking'
 }
 
 export const site = {
@@ -28,13 +29,14 @@ export const site = {
   nameJp: 'ユア・ネーム',
   title: 'Software Engineer',
   titleJp: 'ソフトウェア・エンジニア',
-  catalog: 'YN-001',
+  catalog: 'SW-077',
   year: 2026,
-  location: 'Somewhere sunny',
-  email: 'you@example.com',
+  location: 'NYC',
+  email: 'stephwyatt08@gmail.com',
   links: [
-    { label: 'GitHub', href: 'https://github.com/' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-    { label: 'Résumé', href: '/resume.pdf' },
+    { label: 'GitHub', href: 'https://github.com/stevwya77' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/stephanie-wyatt25/' },
+    { label: 'Résumé', href: '#' },
   ],
+  status: "open-to-work",
 } satisfies SiteConfig;

@@ -1,0 +1,21 @@
+---
+import type { SiteConfig } from '@/data/site';
+
+interface Props {
+  status: SiteConfig['status'];
+}
+
+const { status } = Astro.props;
+
+const LABELS: Record<SiteConfig['status'], string> = {
+  'open-to-work': 'open to work',
+  freelance: 'freelance only',
+  'not-looking': '',
+};
+---
+
+TODO: your markup, using {LABELS[status]}
+
+<style>
+  /* TODO: absolute position, a tilt, your own colours */
+</style>

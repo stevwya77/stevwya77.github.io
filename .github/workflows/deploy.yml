@@ -5,27 +5,32 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Token permissions
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+    contents: read     # Read access to pull
+    pages: write        # Write access to deploy
+    id-token: write     # Enables OIDC token generation for deployment
 
 jobs:
+    # Build website artifacts
   build:
     runs-on: ubuntu-latest
     steps:
+      # Download repo onto build runner
       - uses: actions/checkout@v7
+      # Astro build action
       - uses: withastro/action@v6
         with:
           node-version: 24
           package-manager: npm
-
+    # Publish site
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+      # Publish the generated static build artifact to GitHub Pages
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
