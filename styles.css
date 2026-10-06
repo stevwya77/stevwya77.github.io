@@ -101,7 +101,7 @@ h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 
 .bezel { background: var(--bezel); padding: 14px 22px 26px; border-radius: 14px 14px 44px 14px; box-shadow: 0 1px 0 rgba(255,255,255,.4) inset, 0 22px 44px -22px color-mix(in oklab, var(--moss) 70%, transparent); }
 .bezel-top { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--bezel-ink); margin-bottom: 10px; }
 .led { width: 7px; height: 7px; border-radius: 50%; background: #d64545; box-shadow: 0 0 6px #ff6b6b; }
-.portrait { display: block; width: 288px; height: 288px; image-rendering: pixelated; border-radius: 3px; border: 3px solid #15271d; }
+.portrait { display: block; width: 256px; height: 256px; image-rendering: pixelated; border-radius: 3px; border: 3px solid #15271d; }
 .handheld figcaption { font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft); }
 
 /* Sections */
@@ -179,7 +179,6 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
   .nav li:not(:last-child):nth-child(n+3) { display: none; }
   .hero { padding: 56px 0 56px; }
   .lede { font-size: 18px; }
-  .portrait { width: 240px; height: 240px; }
   .grid-2 { grid-template-columns: 1fr; gap: 16px; }
   .tracklist li { grid-template-columns: 32px 1fr; gap: 4px 12px; }
   .tracklist .when { grid-column: 2; grid-row: 1; margin-bottom: 2px; }
