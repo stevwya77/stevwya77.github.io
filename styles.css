@@ -81,7 +81,28 @@ a:focus-visible, .btn:focus-visible { outline: 3px solid var(--moss); outline-of
 .nav .nav-cta:hover { background: var(--moss); color: var(--moss-ink); }
 
 /* Hero */
-.hero { padding: 88px 0 80px; }
+.hero { position: relative; overflow: hidden; isolation: isolate; padding: 88px 0 80px; }
+
+/* Circuit traces with leaves twined through them, kept faint. */
+.pcb { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.17; pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.3) 0%, rgba(0,0,0,.4) 45%, #000 78%);
+          mask-image: linear-gradient(90deg, rgba(0,0,0,.3) 0%, rgba(0,0,0,.4) 45%, #000 78%); }
+.pcb .traces path { fill: none; stroke: var(--moss); stroke-width: 2; stroke-linejoin: round; }
+.pcb .vias circle { fill: var(--paper); stroke: var(--moss); stroke-width: 2; }
+.pcb .pulses path { fill: none; stroke: var(--solar); stroke-width: 3.5; stroke-linecap: round; stroke-dasharray: 16 984; stroke-dashoffset: 1000; animation: pcb-pulse 11s linear infinite; animation-delay: var(--d); }
+.pcb .vines path { fill: none; stroke: var(--sky); stroke-width: 1.6; stroke-linecap: round; stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: pcb-grow 4s ease-out forwards; animation-delay: var(--d); }
+.pcb .leaves { opacity: 0; animation: pcb-fade 2.5s ease 1.6s forwards; }
+.pcb .leaf { fill: var(--moss); transform-box: fill-box; transform-origin: 0 50%; animation: pcb-sway 8s ease-in-out infinite alternate; animation-delay: calc(var(--d) * -1); }
+@keyframes pcb-pulse { to { stroke-dashoffset: 0; } }
+@keyframes pcb-grow { to { stroke-dashoffset: 0; } }
+@keyframes pcb-fade { to { opacity: 1; } }
+@keyframes pcb-sway { from { transform: rotate(-7deg); } to { transform: rotate(7deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .pcb * { animation: none !important; }
+  .pcb .vines path { stroke-dashoffset: 0; }
+  .pcb .leaves { opacity: 1; }
+  .pcb .pulses { display: none; }
+}
 .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 56px; align-items: center; }
 .eyebrow { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--moss); margin: 0 0 18px; }
 h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 5.6vw, 60px); line-height: 1.12; letter-spacing: 0.01em; text-transform: uppercase; margin: 0 0 22px; }
@@ -102,7 +123,7 @@ h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 
 .bezel-top { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--bezel-ink); margin-bottom: 10px; }
 .led { width: 7px; height: 7px; border-radius: 50%; background: #d64545; box-shadow: 0 0 6px #ff6b6b; }
 .portrait { display: block; width: 256px; height: 256px; image-rendering: pixelated; border-radius: 3px; border: 3px solid #15271d; }
-.handheld figcaption { font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft); }
+.handheld figcaption { font-family: var(--font-mono); font-size: 11px; line-height: 1.6; color: var(--ink-soft); max-width: 300px; text-align: center; }
 
 /* Sections */
 .section { padding: 72px 0; border-top: 1px dashed var(--fold); }
@@ -188,3 +209,5 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
   .section { padding: 52px 0; }
   .feature h3 { font-size: 23px; }
 }
+
+@media (prefers-color-scheme: dark) { .pcb { opacity: 0.24; } }
