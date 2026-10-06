@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stephanie Wyatt | Software Engineer</title>
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
   <meta name="description" content="Stephanie Wyatt is a software engineer in New York building full-stack developer tools and enterprise automation.">
   <meta property="og:title" content="Stephanie Wyatt | Software Engineer">
   <meta property="og:description" content="Software engineer in New York. Full-stack developer tools and enterprise automation.">
@@ -49,7 +50,7 @@
           <p class="status"><span class="dot" aria-hidden="true"></span>Open to software engineering roles in the NYC area, full-time or contract.</p>
           <div class="actions">
             <a class="btn btn-primary" href="resume.pdf">View resume</a>
-            <a class="btn" href="mailto:stephwyatt08@gmail.com">Email me</a>
+            <a class="btn js-email" href="#contact" data-u="stephwyatt08" data-d="gmail.com">Email me</a>
             <a class="btn btn-ghost" href="https://github.com/stevwya77">GitHub</a>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/stephanie-wyatt25">LinkedIn</a>
           </div>
@@ -236,7 +237,7 @@
         <div class="sec-head"><span class="side">Outro</span><h2>Contact</h2></div>
         <p class="lede">The fastest way to reach me is email. I'm based in Queens and open to on-site, hybrid, or remote work in the New York area.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="mailto:stephwyatt08@gmail.com">stephwyatt08@gmail.com</a>
+          <a class="btn btn-primary js-email" href="#contact" data-u="stephwyatt08" data-d="gmail.com" data-show>Email me</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/stephanie-wyatt25">LinkedIn</a>
           <a class="btn btn-ghost" href="https://github.com/stevwya77">GitHub</a>
         </div>
@@ -247,5 +248,13 @@
   <footer class="footer">
     <div class="wrap footer-inner"><span>SW-077</span><span>℗ 2026 Stephanie Wyatt</span></div>
   </footer>
+  <script>
+    // Build mailto links at runtime so the address never appears whole in the HTML.
+    document.querySelectorAll('.js-email').forEach(function (a) {
+      var e = a.dataset.u + '@' + a.dataset.d;
+      a.href = 'mailto:' + e;
+      if (a.hasAttribute('data-show')) a.textContent = e;
+    });
+  </script>
 </body>
 </html>
