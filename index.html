@@ -13,7 +13,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/audiowide-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -59,8 +59,8 @@
             <ol>
               <li><a href="#about"><span class="code">00</span>About</a></li>
               <li><a href="#work"><span class="code">A</span>Projects</a></li>
-              <li><a href="#now"><span class="code">R</span>Now recording</a></li>
               <li><a href="#experience"><span class="code">B</span>Experience</a></li>
+              <li><a href="#now"><span class="code">R</span>Now recording</a></li>
               <li><a href="#offclock"><span class="code">+</span>Off the clock</a></li>
               <li><a href="#credits"><span class="code">C</span>Skills and education</a></li>
               <li><a href="#contact"><span class="code">→</span>Contact</a></li>
@@ -143,14 +143,6 @@
       </div>
     </section>
 
-    <section id="now" class="section">
-      <div class="wrap">
-        <div class="sec-head"><span class="side"><span class="rec-dot" aria-hidden="true"></span>Rec</span><h2>Now recording</h2></div>
-        <ol class="rec-list" id="now-list"></ol>
-        <noscript><p class="rec-sub">Turn on JavaScript to see what I'm working through right now.</p></noscript>
-      </div>
-    </section>
-
     <section id="experience" class="section">
       <div class="wrap">
         <div class="sec-head"><span class="side">Side B</span><h2>Experience</h2></div>
@@ -199,6 +191,15 @@
       </div>
     </section>
 
+    <div class="duo">
+    <section id="now" class="section">
+      <div class="wrap">
+        <div class="sec-head"><span class="side"><span class="rec-dot" aria-hidden="true"></span>Rec</span><h2>Now recording</h2></div>
+        <ol class="rec-list" id="now-list"></ol>
+        <noscript><p class="rec-sub">Turn on JavaScript to see what I'm working through right now.</p></noscript>
+      </div>
+    </section>
+
     <section id="offclock" class="section">
       <div class="wrap">
         <div class="sec-head"><span class="side">Bonus tracks</span><h2>Off the clock</h2></div>
@@ -221,6 +222,7 @@
         </div>
       </div>
     </section>
+    </div>
 
     <section id="credits" class="section">
       <div class="wrap">
@@ -289,8 +291,11 @@
         var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
         sections.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= line) current = i; });
         if (atBottom) current = sections.length - 1;
+        // Sections sharing a row (Now recording + Off the clock on desktop) light up together.
+        var top = sections[current] ? sections[current].getBoundingClientRect().top : 0;
         links.forEach(function (a, i) {
-          if (i === current) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+          var same = sections[i] && Math.abs(sections[i].getBoundingClientRect().top - top) < 4;
+          if (same) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
         });
       }
       window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
