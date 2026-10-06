@@ -13,7 +13,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/michroma-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -54,6 +54,17 @@
             <a class="btn btn-ghost" href="https://github.com/stevwya77">GitHub</a>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/stephanie-wyatt25">LinkedIn</a>
           </div>
+          <!-- Desktop-only section nav; the top bar handles navigation on smaller screens. -->
+          <nav class="side-nav" aria-label="Sections">
+            <ol>
+              <li><a href="#about"><span class="code">00</span>About</a></li>
+              <li><a href="#work"><span class="code">A</span>Projects</a></li>
+              <li><a href="#experience"><span class="code">B</span>Experience</a></li>
+              <li><a href="#offclock"><span class="code">+</span>Off the clock</a></li>
+              <li><a href="#credits"><span class="code">C</span>Skills and education</a></li>
+              <li><a href="#contact"><span class="code">→</span>Contact</a></li>
+            </ol>
+          </nav>
         </div>
         <figure class="handheld">
           <div class="bezel">
@@ -255,6 +266,27 @@
       a.href = 'mailto:' + e;
       if (a.hasAttribute('data-show')) a.textContent = e;
     });
+
+    // Highlight the side-nav entry for the section currently in view.
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.side-nav a'));
+      if (!links.length) return;
+      var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+      var ticking = false;
+      function update() {
+        ticking = false;
+        var line = window.innerHeight * 0.35, current = 0;
+        var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+        sections.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= line) current = i; });
+        if (atBottom) current = sections.length - 1;
+        links.forEach(function (a, i) {
+          if (i === current) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        });
+      }
+      window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
   </script>
 </body>
 </html>
