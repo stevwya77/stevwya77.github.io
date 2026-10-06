@@ -105,18 +105,25 @@
               <li>TypeScript</li><li>React</li><li>Vite</li><li>Python</li><li>Flask</li><li>C</li><li>GDB</li><li>pygdbmi</li>
             </ul>
           </div>
-          <div class="feature-visual" aria-hidden="true">
+          <div class="feature-visual">
             <div class="term">
-              <div class="term-bar"><span></span><span></span><span></span><em>tracy</em></div>
-<pre><span class="c">// stack frame</span>
-<span class="k">main</span>()        rsp 0x7ffd…e0
- └ <span class="k">parse</span>(buf)  rbp 0x7ffd…b8
-    └ <span class="k">copy</span>(dst)  <span class="r">SIGSEGV</span>
-
-<span class="c">// breakpoints</span>
-● parse.c:42
-● copy.c:17</pre>
+              <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>tracy</em></div>
+              <video class="term-video" poster="img/tracy-poster.jpg" width="1440" height="900" muted loop playsinline preload="metadata" aria-label="Tracy stepping through a C program from main into foo and bar, showing stack frames and registers update, then catching a segmentation fault and offering an AI hint">
+                <source src="img/tracy-demo.mp4" type="video/mp4">
+                <source src="img/tracy-demo.webm" type="video/webm">
+              </video>
             </div>
+            <a class="term-link" href="img/tracy-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
+            <script>
+              (function () {
+                var v = document.querySelector('.term-video');
+                if (v && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                  v.autoplay = true;
+                  var p = v.play();
+                  if (p && p.catch) p.catch(function () {});
+                }
+              })();
+            </script>
           </div>
         </article>
 
