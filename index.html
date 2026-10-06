@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stephanie Wyatt | Software Engineer</title>
+  <meta name="description" content="Stephanie Wyatt is a software engineer in New York building full-stack developer tools and enterprise automation.">
+  <meta property="og:title" content="Stephanie Wyatt | Software Engineer">
+  <meta property="og:description" content="Software engineer in New York. Full-stack developer tools and enterprise automation.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#eef3e6">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/michroma-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Stephanie Wyatt, home">SW-077</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="nav-cta" href="resume.pdf">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Software Engineer · New York, NY</p>
+          <h1>Stephanie<br>Wyatt</h1>
+          <p class="lede">I build full-stack developer tools and automate the enterprise systems people rely on every day.</p>
+          <p class="status"><span class="dot" aria-hidden="true"></span>Open to software engineering roles in the NYC area, full-time or contract.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="resume.pdf">View resume</a>
+            <a class="btn" href="mailto:stephwyatt08@gmail.com">Email me</a>
+            <a class="btn btn-ghost" href="https://github.com/stevwya77">GitHub</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/stephanie-wyatt25">LinkedIn</a>
+          </div>
+        </div>
+        <figure class="handheld">
+          <div class="bezel">
+            <div class="bezel-top"><span class="led" aria-hidden="true"></span><span>SW-077</span></div>
+            <img class="portrait" src="img/portrait.png" width="192" height="192" alt="Portrait of Stephanie Wyatt, dithered in four shades of green like an old handheld game screen.">
+          </div>
+          <figcaption>192 × 192 pixels, four colors, ordered dither.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap grid-2">
+        <div class="sec-head"><span class="side">Liner notes</span><h2>About</h2></div>
+        <div class="prose">
+          <p>I'm finishing a B.S. in Computer Science at Stanford on the computational biology track, with graduation expected in June 2027. Before Stanford I spent four years in enterprise IT. Most of that was at Goldman Sachs, where I automated role-based provisioning for more than 15,000 employees across 24 offices.</p>
+          <p>Since then I've led a debugger project that won Stanford's senior capstone competition, rebuilt nonprofit websites with Develop for Good, and audited AI-generated code for logic errors and edge cases. The common thread is understanding how systems fail and building tools that make those failures easier to see and fix.</p>
+          <p>I'm CompTIA Security+ certified and currently completing CodePath's open source capstone, which ends in a contribution to a real open source project.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="wrap">
+        <div class="sec-head"><span class="side">Side A</span><h2>Projects</h2></div>
+
+        <article class="feature">
+          <div class="feature-body">
+            <div class="track-title"><span class="code">A1</span><h3>Tracy GDB Visualizer</h3></div>
+            <p class="award">1st Place · Stanford CS 194 Senior Capstone Competition</p>
+            <p class="meta">Lead Developer · Apr 2025 – Jun 2025</p>
+            <p>A full-stack debugging interface that shows source code and memory layout side by side while a program runs. A React and TypeScript frontend renders the program's state, and a Flask backend streams live GDB state through pygdbmi.</p>
+            <ul class="points">
+              <li>Built session state management with low-level register tracking, so stack updates, breakpoints, and segfaults surface in real time.</li>
+              <li>Integrated an AI assistant that uses the live debugging context to explain runtime errors and offer targeted hints.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>TypeScript</li><li>React</li><li>Vite</li><li>Python</li><li>Flask</li><li>C</li><li>GDB</li><li>pygdbmi</li>
+            </ul>
+          </div>
+          <div class="feature-visual" aria-hidden="true">
+            <div class="term">
+              <div class="term-bar"><span></span><span></span><span></span><em>tracy</em></div>
+<pre><span class="c">// stack frame</span>
+<span class="k">main</span>()        rsp 0x7ffd…e0
+ └ <span class="k">parse</span>(buf)  rbp 0x7ffd…b8
+    └ <span class="k">copy</span>(dst)  <span class="r">SIGSEGV</span>
+
+<span class="c">// breakpoints</span>
+● parse.c:42
+● copy.c:17</pre>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="wrap">
+        <div class="sec-head"><span class="side">Side B</span><h2>Experience</h2></div>
+        <ol class="tracklist">
+          <li>
+            <span class="code">B1</span>
+            <div class="what">
+              <h3>AI Coding &amp; Technical Evaluator <span class="org">DataAnnotation</span></h3>
+              <p>Audit and correct model-generated Python, C/C++, and JavaScript for logic errors, algorithmic edge cases, and multi-step reasoning failures.</p>
+            </div>
+            <span class="when">Jun 2026 – Present</span>
+          </li>
+          <li>
+            <span class="code">B2</span>
+            <div class="what">
+              <h3>Software Engineer <span class="org">Develop for Good</span></h3>
+              <p>Overhauled site layouts and architecture for nonprofit clients including The Forge Nashville, adding interactive maps and search that raised engagement 30%. Configured Google Analytics funnels that improved user flow efficiency 35%, and held each build to ADA requirements for contrast, keyboard navigation, and heading structure.</p>
+            </div>
+            <span class="when">Apr 2026 – Sep 2026</span>
+          </li>
+          <li>
+            <span class="code">B3</span>
+            <div class="what">
+              <h3>Operations Technician <span class="org">Stanford University</span></h3>
+              <p>Deployed, relocated, and decommissioned computing and A/V hardware across campus, diagnosed failures, coordinated vendor repairs, and kept asset inventory accurate.</p>
+            </div>
+            <span class="when">Sep 2024 – Jun 2025</span>
+          </li>
+          <li>
+            <span class="code">B4</span>
+            <div class="what">
+              <h3>Service Delivery Analyst <span class="org">Goldman Sachs</span></h3>
+              <p>Automated role-based provisioning for 15,000+ employees across 24 global offices, cutting provisioning time and operational overhead by 80%. Administered access control and identity management through REST API integrations and Active Directory, and helped build an internal knowledge-base page in HTML, CSS, and JavaScript that surfaced trending articles.</p>
+            </div>
+            <span class="when">May 2019 – Sep 2022</span>
+          </li>
+          <li>
+            <span class="code">B5</span>
+            <div class="what">
+              <h3>Service Desk Analyst <span class="org">Zones, Inc.</span></h3>
+              <p>Provided Level I support for New York State ITS across 53 state departments. Maintained TCP/IP networks including DHCP, DNS, and VPN, and administered ServiceNow ticketing, writing automated resolution scripts in Python that handled 100+ requests a day within SLA.</p>
+            </div>
+            <span class="when">Sep 2018 – May 2019</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="offclock" class="section">
+      <div class="wrap">
+        <div class="sec-head"><span class="side">Bonus tracks</span><h2>Off the clock</h2></div>
+        <div class="bonus">
+          <article>
+            <span class="code">+1</span>
+            <h3>On the bench</h3>
+            <p>I tinker with electronics as a hobbyist, mostly FPGAs and software-defined radio.</p>
+          </article>
+          <article>
+            <span class="code">+2</span>
+            <h3>Retro game dev</h3>
+            <p>Old consoles had almost no memory, so every byte had to earn its place. I study how those games were built and I'm learning assembly through Game Boy emulation. The portrait above is a small tribute.</p>
+          </article>
+          <article>
+            <span class="code">+3</span>
+            <h3>Making things myself</h3>
+            <p>I join community DIY initiatives around energy sustainability, sewing, and growing my own food.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="credits" class="section">
+      <div class="wrap">
+        <div class="sec-head"><span class="side">Credits</span><h2>Skills and education</h2></div>
+        <div class="skills">
+          <div>
+            <h3>Languages</h3>
+            <ul class="tags"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>C/C++</li><li>SQL</li><li>R</li></ul>
+          </div>
+          <div>
+            <h3>Web</h3>
+            <ul class="tags"><li>React</li><li>Next.js</li><li>Node.js</li><li>Flask</li><li>REST APIs</li><li>HTML/CSS</li></ul>
+          </div>
+          <div>
+            <h3>Systems</h3>
+            <ul class="tags"><li>Linux</li><li>AWS</li><li>Active Directory</li><li>IAM</li><li>TCP/IP</li><li>Elasticsearch</li></ul>
+          </div>
+          <div>
+            <h3>Tools and data</h3>
+            <ul class="tags"><li>Git</li><li>GDB</li><li>Postman</li><li>pandas</li><li>NumPy</li><li>scikit-learn</li></ul>
+          </div>
+        </div>
+        <ul class="edu">
+          <li><strong>Stanford University</strong><span>B.S. Computer Science, Computational Biology Track · Expected June 2027</span></li>
+          <li><strong>Schenectady County Community College</strong><span>A.S. Computer Science · 2022</span></li>
+          <li><strong>CompTIA Security+ CE</strong><span>2026</span></li>
+          <li><strong>CodePath AI 301</strong><span>Open Source Capstone · In progress</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="wrap">
+        <div class="sec-head"><span class="side">Fan mail</span><h2>Contact</h2></div>
+        <p class="lede">The fastest way to reach me is email. I'm based in Queens and open to on-site, hybrid, or remote work in the New York area.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:stephwyatt08@gmail.com">stephwyatt08@gmail.com</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/stephanie-wyatt25">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/stevwya77">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner"><span>SW-077</span><span>℗ 2026 Stephanie Wyatt</span></div>
+  </footer>
+</body>
+</html>
