@@ -177,6 +177,7 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
 .term .k { color: #9fd8a9; }
 .term .r { color: #f2c14e; font-weight: 500; }
 .term-video { display: block; width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #1a1a1a; }
+.term-video.is-wide { aspect-ratio: 16 / 9; }
 .term-link { display: inline-block; margin-top: 12px; font-family: var(--font-mono); font-size: 12px; color: var(--moss); text-decoration: none; }
 .term-link:hover { text-decoration: underline; }
 .term-link .ext { font-size: 0.9em; }
@@ -194,18 +195,29 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
 .play:hover, .is-playable:hover .play { background: var(--moss); color: var(--moss-ink); border-color: var(--moss); }
 .play:focus-visible { outline: 2px solid var(--solar); outline-offset: 2px; }
 /* Swap animation. Each project keeps its own name, so cards slide to their new
-   places; a card changing size morphs its outline while its contents crossfade
-   at natural size instead of stretching.
-   Bounce's row (keyed row2 by projects.js) looks the same at both ends, so it
-   only shares the slide timing and keeps the default solid crossfade. */
-::view-transition-group(project-tracy), ::view-transition-group(project-n2t), ::view-transition-group(project-row2) {
-  animation-duration: .7s; animation-timing-function: cubic-bezier(.22, 1, .36, 1); overflow: clip; border-radius: 14px; }
-::view-transition-image-pair(project-tracy), ::view-transition-image-pair(project-n2t) { isolation: auto; }
-::view-transition-old(project-tracy), ::view-transition-old(project-n2t),
-::view-transition-new(project-tracy), ::view-transition-new(project-n2t) {
+   places. Names come from each project's data-project key in projects.js:
+   project-* for the two cards trading places, slide-* for rows that only move,
+   slide-after for the section below the list. */
+::view-transition-group(project-tracy), ::view-transition-group(project-n2t), ::view-transition-group(project-bounce),
+::view-transition-group(slide-tracy), ::view-transition-group(slide-n2t), ::view-transition-group(slide-bounce),
+::view-transition-group(slide-after) {
+  animation-duration: .65s; animation-timing-function: cubic-bezier(.45, 0, .2, 1); }
+/* The two cards trading places resize as one solid card while their contents
+   crossfade at natural size, clipped to the moving outline: the old content
+   clears quickly, then the new content settles in. */
+::view-transition-group(project-tracy), ::view-transition-group(project-n2t), ::view-transition-group(project-bounce) {
+  overflow: clip; border-radius: 14px; }
+::view-transition-image-pair(project-tracy), ::view-transition-image-pair(project-n2t), ::view-transition-image-pair(project-bounce) { isolation: auto; }
+::view-transition-old(project-tracy), ::view-transition-old(project-n2t), ::view-transition-old(project-bounce),
+::view-transition-new(project-tracy), ::view-transition-new(project-n2t), ::view-transition-new(project-bounce) {
   width: 100%; height: 100%; object-fit: none; object-position: top left; mix-blend-mode: normal; }
-::view-transition-old(project-tracy), ::view-transition-old(project-n2t) { animation: project-out .32s cubic-bezier(.4, 0, .6, 1) both; }
-::view-transition-new(project-tracy), ::view-transition-new(project-n2t) { animation: project-in .42s cubic-bezier(.4, 0, .2, 1) .14s both; }
+::view-transition-old(project-tracy), ::view-transition-old(project-n2t), ::view-transition-old(project-bounce) { animation: project-out .22s ease-out both; }
+::view-transition-new(project-tracy), ::view-transition-new(project-n2t), ::view-transition-new(project-bounce) { animation: project-in .4s ease-out .2s both; }
+/* Where list rows are cards too (wide screens), keep a solid card under the fade. */
+@media (min-width: 1100px) {
+  ::view-transition-group(project-tracy), ::view-transition-group(project-n2t), ::view-transition-group(project-bounce) {
+    background: var(--card); box-shadow: inset 0 0 0 1px var(--edge), 0 12px 24px -14px var(--drop); }
+}
 /* The rest of the page doesn't crossfade, so nothing ghosts behind the moving cards. */
 ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
 @keyframes project-out { to { opacity: 0; } }

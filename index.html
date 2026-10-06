@@ -140,6 +140,29 @@
               <a class="term-link" href="img/n2t-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
             </div>
           </article>
+
+          <article class="feature" data-project="bounce" aria-labelledby="bounce-title" hidden>
+            <div class="feature-body">
+              <div class="track-title"><span class="code">A3</span><h3 id="bounce-title" tabindex="-1"><a href="https://github.com/stevwya77/bounce">Bounce <span class="ext" aria-hidden="true">↗</span></a></h3></div>
+              <p class="meta">Arcade game · 2026</p>
+              <p>A paddle-and-ball arcade game in C++20 with SFML 3. A new ball drops in every two seconds and they never leave on their own, so keeping them all in the air gets harder the longer you last.</p>
+              <ul class="points">
+                <li>Built the game loop on SFML 3, with delta-time movement so speed stays the same at any frame rate, and paddle collisions that score a point and play a sound.</li>
+                <li>Shows score and lives on screen, saves the high score to a file between runs, and keeps tuning values like speeds, sizes, and volumes in one config struct.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies"><li>C++20</li><li>SFML</li><li>CMake</li></ul>
+            </div>
+            <div class="feature-visual">
+              <div class="term">
+                <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>bounce</em></div>
+                <video class="term-video is-wide" poster="img/bounce-poster.jpg" width="1440" height="810" muted loop playsinline preload="none" aria-label="A game of Bounce from start to finish: green balls spawn and are kept in the air with the paddle as the score climbs, lives drop as balls are missed, and the game resets to zero">
+                  <source src="img/bounce-demo.mp4" type="video/mp4">
+                  <source src="img/bounce-demo.webm" type="video/webm">
+                </video>
+              </div>
+              <a class="term-link" href="img/bounce-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
         </div>
 
         <ol class="tracklist more-tracks">
@@ -163,12 +186,13 @@
             </div>
             <span class="when">2025</span>
           </li>
-          <li>
+          <li data-project="bounce">
             <span class="code">A3</span>
             <div class="what">
               <h3><a href="https://github.com/stevwya77/bounce">Bounce <span class="ext" aria-hidden="true">↗</span></a> <span class="org">Arcade game</span></h3>
               <p>A paddle-and-ball arcade game in C++20 with SFML, including sound, music, a config file, and saved high scores.</p>
               <ul class="tags" aria-label="Technologies"><li>C++20</li><li>SFML</li><li>CMake</li></ul>
+              <button class="play" type="button" data-play="bounce" aria-controls="work-stage" hidden>Watch demo</button>
             </div>
             <span class="when">2026</span>
           </li>

@@ -8,6 +8,8 @@
   if (!stage || !list) return;
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var section = stage.closest('section');
+  var after = section && section.nextElementSibling;
 
   function feature(id) { return stage.querySelector('.feature[data-project="' + id + '"]'); }
   function row(id) { return list.querySelector('li[data-project="' + id + '"]'); }
@@ -34,9 +36,11 @@
     li.dataset.key = li.dataset.project || 'row' + i;
   });
 
-  function name(el, key) {
+  // 'project-' names are the two cards trading places (they crossfade);
+  // 'slide-' names are rows that only move, so they stay solid.
+  function name(el, key, prefix) {
     if (!el) return;
-    el.style.viewTransitionName = key ? 'project-' + key : '';
+    el.style.viewTransitionName = key ? (prefix || 'project-') + key : '';
   }
 
   function show(id, fromKeyboard) {
@@ -71,7 +75,7 @@
     }
 
     function finish() {
-      [cur, next, rowCur, rowNext].concat(others).forEach(function (el) { name(el, null); });
+      [cur, next, rowCur, rowNext, after].concat(others).forEach(function (el) { name(el, null); });
       // Keyboard users land on the new card's heading so they can read on from there.
       var heading = next.querySelector('h3');
       if (heading && fromKeyboard) heading.focus({ preventScroll: true });
@@ -84,7 +88,9 @@
     if (document.startViewTransition && !reduceMotion.matches) {
       name(cur, curId);
       name(rowNext, id);
-      others.forEach(function (li) { name(li, li.dataset.key); });
+      others.forEach(function (li) { name(li, li.dataset.key, 'slide-'); });
+      // The section below moves with the list instead of jumping when the card height changes.
+      name(after, 'after', 'slide-');
       var t = document.startViewTransition(update);
       t.finished.then(finish, finish);
     } else {
