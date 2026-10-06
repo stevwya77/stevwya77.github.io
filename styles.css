@@ -161,8 +161,8 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
 
 /* Tracklist */
 .tracklist { list-style: none; margin: 0; padding: 0; }
-.tracklist li { display: grid; grid-template-columns: 44px 1fr auto; gap: 18px; padding: 22px 0; border-top: 1px dashed var(--fold); align-items: baseline; }
-.tracklist li:first-child { border-top: 0; padding-top: 0; }
+.tracklist > li { display: grid; grid-template-columns: 44px 1fr auto; gap: 18px; padding: 22px 0; border-top: 1px dashed var(--fold); align-items: baseline; }
+.tracklist > li:first-child { border-top: 0; padding-top: 0; }
 .when { color: var(--ink-soft); font-size: 12px; font-family: var(--font-mono); white-space: nowrap; }
 .org { display: block; font-weight: 500; color: var(--moss); font-size: 16px; margin-top: 2px; }
 .what p { margin: 6px 0 0; max-width: 680px; }
@@ -201,7 +201,7 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
   .hero { padding: 56px 0 56px; }
   .lede { font-size: 18px; }
   .grid-2 { grid-template-columns: 1fr; gap: 16px; }
-  .tracklist li { grid-template-columns: 32px 1fr; gap: 4px 12px; }
+  .tracklist > li { grid-template-columns: 32px 1fr; gap: 4px 12px; }
   .tracklist .when { grid-column: 2; grid-row: 1; margin-bottom: 2px; }
   .tracklist .what { grid-column: 2; }
   .tracklist .code { grid-row: 1 / span 2; }
@@ -213,7 +213,7 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
 @media (prefers-color-scheme: dark) { .pcb { opacity: 0.24; } }
 
 /* Hover states, kept small and quick. */
-.btn, .feature, .bonus article, .edu li, .bezel, .tags li, .tracklist li, .tracklist h3, .tracklist .code, .portrait, .led {
+.btn, .feature, .bonus article, .edu li, .bezel, .tags li, .tracklist > li, .tracklist h3, .tracklist .code, .portrait, .led {
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease, color .2s ease, filter .2s ease;
 }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px -10px color-mix(in oklab, var(--moss) 70%, transparent); }
@@ -227,13 +227,21 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
 
 .tags li:hover { border-color: var(--moss); background: color-mix(in oklab, var(--moss) 12%, var(--paper)); }
 
-.tracklist li:hover .code { color: var(--moss); }
-.tracklist li:hover h3 { transform: translateX(4px); }
+.tracklist > li:hover .code { color: var(--moss); }
+.tracklist > li:hover h3 { transform: translateX(4px); }
 
 .handheld:hover .bezel { transform: rotate(-1.5deg) translateY(-3px); }
 .handheld:hover .portrait { filter: brightness(1.06) contrast(1.04); }
 .handheld:hover .led { box-shadow: 0 0 10px 2px #ff6b6b; }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn:hover, .feature:hover, .bonus article:hover, .edu li:hover, .tracklist li:hover h3, .handheld:hover .bezel { transform: none; }
+  .btn:hover, .feature:hover, .bonus article:hover, .edu li:hover, .tracklist > li:hover h3, .handheld:hover .bezel { transform: none; }
 }
+
+/* Smaller project tracks under the featured one. */
+.more-tracks { margin-top: 28px; }
+.more-tracks > li:first-child { border-top: 1px dashed var(--fold); padding-top: 22px; }
+.more-tracks .tags { margin-top: 12px; }
+.tracklist h3 a { color: var(--ink); text-decoration: none; }
+.tracklist h3 a:hover { color: var(--moss); text-decoration: underline; }
+.tracklist .ext { font-size: 0.8em; color: var(--moss); }
