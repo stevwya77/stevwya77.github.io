@@ -12,7 +12,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/michroma-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -57,9 +57,9 @@
         <figure class="handheld">
           <div class="bezel">
             <div class="bezel-top"><span class="led" aria-hidden="true"></span><span>SW-077</span></div>
-            <img class="portrait" src="img/portrait.png" width="256" height="256" alt="Portrait of Stephanie Wyatt, dithered in shades of green like an old handheld game screen.">
+            <img class="portrait" src="img/portrait.png" srcset="img/portrait.png 1x, img/portrait@2x.png 2x, img/portrait@3x.png 3x" width="256" height="256" alt="Portrait of Stephanie Wyatt, dithered in shades of green like an old handheld game screen.">
           </div>
-          <figcaption>As seen on an STN LCD behind a greenish-yellow polarizer.</figcaption>
+          <figcaption>As seen on an STN LCD.</figcaption>
         </figure>
       </div>
     </section>
@@ -68,9 +68,8 @@
       <div class="wrap grid-2">
         <div class="sec-head"><span class="side">Liner notes</span><h2>About</h2></div>
         <div class="prose">
-          <p>I'm finishing a B.S. in Computer Science at Stanford on the computational biology track, with graduation expected in June 2027. Before Stanford I spent four years in enterprise IT. Most of that was at Goldman Sachs, where I automated role-based provisioning for more than 15,000 employees across 24 offices.</p>
-          <p>Since then I've led a debugger project that won Stanford's senior capstone competition, rebuilt nonprofit websites with Develop for Good, and audited AI-generated code for logic errors and edge cases. The common thread is understanding how systems fail and building tools that make those failures easier to see and fix.</p>
-          <p>I hold the AWS Certified Cloud Practitioner and CompTIA Security+ certifications, and I'm currently completing CodePath's open source capstone, which ends in a contribution to a real open source project.</p>
+          <p>I'm finishing a B.S. in Computer Science at Stanford, expected June 2027, after four years in enterprise IT. At Goldman Sachs I automated role-based provisioning for 15,000+ employees across 24 offices.</p>
+          <p>I like understanding how systems fail and building tools that make failures easier to see and fix. I hold AWS Cloud Practitioner and Security+ certifications and I'm completing <a href="https://www.codepath.org">CodePath</a>'s open source capstone.</p>
         </div>
       </div>
     </section>
@@ -84,7 +83,7 @@
             <div class="track-title"><span class="code">A1</span><h3>Tracy GDB Visualizer</h3></div>
             <p class="award">1st Place · Stanford CS 194 Senior Capstone Competition</p>
             <p class="meta">Lead Developer · Apr 2025 – Jun 2025</p>
-            <p>A full-stack debugging interface that shows source code and memory layout side by side while a program runs. A React and TypeScript frontend renders the program's state, and a Flask backend streams live GDB state through pygdbmi.</p>
+            <p>A debugger UI that shows source code and memory layout side by side as a program runs. A React and TypeScript frontend sits on a Flask backend that streams live GDB state.</p>
             <ul class="points">
               <li>Built session state management with low-level register tracking, so stack updates, breakpoints, and segfaults surface in real time.</li>
               <li>Integrated an AI assistant that uses the live debugging context to explain runtime errors and offer targeted hints.</li>
@@ -118,7 +117,7 @@
             <span class="code">B1</span>
             <div class="what">
               <h3>AI Coding &amp; Technical Evaluator <span class="org">DataAnnotation</span></h3>
-              <p>Audit and correct model-generated Python, C/C++, and JavaScript for logic errors, algorithmic edge cases, and multi-step reasoning failures.</p>
+              <p>Audit model-generated Python, C/C++, and JavaScript for logic errors and edge cases.</p>
             </div>
             <span class="when">Jun 2026 – Present</span>
           </li>
@@ -126,7 +125,7 @@
             <span class="code">B2</span>
             <div class="what">
               <h3>Software Engineer <span class="org">Develop for Good</span></h3>
-              <p>Overhauled site layouts and architecture for nonprofit clients including The Forge Nashville, adding interactive maps and search that raised engagement 30%. Configured Google Analytics funnels that improved user flow efficiency 35%, and held each build to ADA requirements for contrast, keyboard navigation, and heading structure.</p>
+              <p>Rebuilt nonprofit sites with interactive maps and search, raising engagement 30% and user flow efficiency 35% while meeting ADA requirements.</p>
             </div>
             <span class="when">Apr 2026 – Sep 2026</span>
           </li>
@@ -134,7 +133,7 @@
             <span class="code">B3</span>
             <div class="what">
               <h3>Operations Technician <span class="org">Stanford University</span></h3>
-              <p>Deployed, relocated, and decommissioned computing and A/V hardware across campus, diagnosed failures, coordinated vendor repairs, and kept asset inventory accurate.</p>
+              <p>Deployed and maintained campus computing and A/V hardware, diagnosing failures and coordinating vendor repairs.</p>
             </div>
             <span class="when">Sep 2024 – Jun 2025</span>
           </li>
@@ -142,7 +141,7 @@
             <span class="code">B4</span>
             <div class="what">
               <h3>Service Delivery Analyst <span class="org">Goldman Sachs</span></h3>
-              <p>Automated role-based provisioning for 15,000+ employees across 24 global offices, cutting provisioning time and operational overhead by 80%. Administered access control and identity management through REST API integrations and Active Directory, and helped build an internal knowledge-base page in HTML, CSS, and JavaScript that surfaced trending articles.</p>
+              <p>Automated role-based provisioning for 15,000+ employees across 24 offices, cutting provisioning time and overhead 80%. Helped build an internal knowledge-base page in HTML, CSS, and JavaScript.</p>
             </div>
             <span class="when">May 2019 – Sep 2022</span>
           </li>
@@ -150,7 +149,7 @@
             <span class="code">B5</span>
             <div class="what">
               <h3>Service Desk Analyst <span class="org">Zones, Inc.</span></h3>
-              <p>Provided Level I support for New York State ITS across 53 state departments. Maintained TCP/IP networks including DHCP, DNS, and VPN, and administered ServiceNow ticketing, writing automated resolution scripts in Python that handled 100+ requests a day within SLA.</p>
+              <p>Level I support for New York State ITS across 53 departments, with Python scripts resolving 100+ ServiceNow requests a day.</p>
             </div>
             <span class="when">Sep 2018 – May 2019</span>
           </li>
@@ -170,7 +169,7 @@
           <article>
             <span class="code">+2</span>
             <h3>Retro game dev</h3>
-            <p>Old consoles had almost no memory, so every byte had to earn its place. I study how those games were built and I'm learning assembly through Game Boy emulation. The portrait above is a small tribute.</p>
+            <p>Old consoles had almost no memory, so every byte had to earn its place. I'm learning assembly through Game Boy emulation.</p>
           </article>
           <article>
             <span class="code">+3</span>

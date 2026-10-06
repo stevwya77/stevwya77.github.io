@@ -211,3 +211,29 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
 }
 
 @media (prefers-color-scheme: dark) { .pcb { opacity: 0.24; } }
+
+/* Hover states, kept small and quick. */
+.btn, .feature, .bonus article, .edu li, .bezel, .tags li, .tracklist li, .tracklist h3, .tracklist .code, .portrait, .led {
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease, color .2s ease, filter .2s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px -10px color-mix(in oklab, var(--moss) 70%, transparent); }
+.btn:active { transform: translateY(0); }
+
+.nav ul a:not(.nav-cta) { background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat; transition: background-size .25s ease, color .2s ease; padding-bottom: 2px; }
+.nav ul a:not(.nav-cta):hover { background-size: 100% 1px; }
+
+.feature:hover, .bonus article:hover, .edu li:hover { transform: translateY(-3px); border-color: color-mix(in oklab, var(--moss) 45%, transparent); box-shadow: 0 14px 30px -20px color-mix(in oklab, var(--moss) 70%, transparent); }
+.bonus article:hover .code { color: var(--solar); }
+
+.tags li:hover { border-color: var(--moss); background: color-mix(in oklab, var(--moss) 12%, var(--paper)); }
+
+.tracklist li:hover .code { color: var(--moss); }
+.tracklist li:hover h3 { transform: translateX(4px); }
+
+.handheld:hover .bezel { transform: rotate(-1.5deg) translateY(-3px); }
+.handheld:hover .portrait { filter: brightness(1.06) contrast(1.04); }
+.handheld:hover .led { box-shadow: 0 0 10px 2px #ff6b6b; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover, .feature:hover, .bonus article:hover, .edu li:hover, .tracklist li:hover h3, .handheld:hover .bezel { transform: none; }
+}
