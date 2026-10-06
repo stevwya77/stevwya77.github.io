@@ -91,49 +91,75 @@
       <div class="wrap">
         <div class="sec-head"><span class="side">Side A</span><h2>Projects</h2></div>
 
-        <article class="feature">
-          <div class="feature-body">
-            <div class="track-title"><span class="code">A1</span><h3>Tracy GDB Visualizer</h3></div>
-            <p class="award">1st Place · Stanford CS 194 Senior Capstone Competition</p>
-            <p class="meta">Lead Developer · Apr 2025 – Jun 2025</p>
-            <p>A debugger UI that shows source code and memory layout side by side as a program runs. A React and TypeScript frontend sits on a Flask backend that streams live GDB state.</p>
-            <ul class="points">
-              <li>Built session state management with low-level register tracking, so stack updates, breakpoints, and segfaults surface in real time.</li>
-              <li>Integrated an AI assistant that uses the live debugging context to explain runtime errors and offer targeted hints.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies">
-              <li>TypeScript</li><li>React</li><li>Vite</li><li>Python</li><li>Flask</li><li>C</li><li>GDB</li><li>pygdbmi</li>
-            </ul>
-          </div>
-          <div class="feature-visual">
-            <div class="term">
-              <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>tracy</em></div>
-              <video class="term-video" poster="img/tracy-poster.jpg" width="1440" height="900" muted loop playsinline preload="metadata" aria-label="Tracy stepping through a C program from main into foo and bar, showing stack frames and memory update, then catching a segmentation fault, offering an AI hint, and scrolling up the stack to show the calling frames">
-                <source src="img/tracy-demo.mp4" type="video/mp4">
-                <source src="img/tracy-demo.webm" type="video/webm">
-              </video>
+        <div class="stage" id="work-stage">
+          <article class="feature" data-project="tracy" aria-labelledby="tracy-title">
+            <div class="feature-body">
+              <div class="track-title"><span class="code">A1</span><h3 id="tracy-title" tabindex="-1">Tracy GDB Visualizer</h3></div>
+              <p class="award">1st Place · Stanford CS 194 Senior Capstone Competition</p>
+              <p class="meta">Lead Developer · Apr 2025 – Jun 2025</p>
+              <p>A debugger UI that shows source code and memory layout side by side as a program runs. A React and TypeScript frontend sits on a Flask backend that streams live GDB state.</p>
+              <ul class="points">
+                <li>Built session state management with low-level register tracking, so stack updates, breakpoints, and segfaults surface in real time.</li>
+                <li>Integrated an AI assistant that uses the live debugging context to explain runtime errors and offer targeted hints.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies">
+                <li>TypeScript</li><li>React</li><li>Vite</li><li>Python</li><li>Flask</li><li>C</li><li>GDB</li><li>pygdbmi</li>
+              </ul>
             </div>
-            <a class="term-link" href="img/tracy-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
-            <script>
-              (function () {
-                var v = document.querySelector('.term-video');
-                if (v && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                  v.autoplay = true;
-                  var p = v.play();
-                  if (p && p.catch) p.catch(function () {});
-                }
-              })();
-            </script>
-          </div>
-        </article>
+            <div class="feature-visual">
+              <div class="term">
+                <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>tracy</em></div>
+                <video class="term-video" poster="img/tracy-poster.jpg" width="1440" height="900" muted loop playsinline preload="metadata" aria-label="Tracy stepping through a C program from main into foo and bar, showing stack frames and memory update, then catching a segmentation fault, offering an AI hint, and scrolling up the stack to show the calling frames">
+                  <source src="img/tracy-demo.mp4" type="video/mp4">
+                  <source src="img/tracy-demo.webm" type="video/webm">
+                </video>
+              </div>
+              <a class="term-link" href="img/tracy-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="feature" data-project="n2t" aria-labelledby="n2t-title" hidden>
+            <div class="feature-body">
+              <div class="track-title"><span class="code">A2</span><h3 id="n2t-title" tabindex="-1"><a href="https://github.com/stevwya77/nand2tetris">Nand2Tetris <span class="ext" aria-hidden="true">↗</span></a></h3></div>
+              <p class="meta">A computer from first principles · 2025</p>
+              <p>A working computer built up from a single NAND gate, following <cite>The Elements of Computing Systems</cite>. The hardware is written in HDL, and the assembler for it is written in Rust.</p>
+              <ul class="points">
+                <li>Built the chips in HDL from NAND up: logic gates and multiplexers, adders and the ALU, registers and RAM, then the Hack CPU and computer.</li>
+                <li>Wrote a two-pass assembler in Rust. The first pass records label addresses, the second translates each instruction into 16-bit machine code and allocates variables from RAM address 16.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies"><li>Rust</li><li>HDL</li><li>Hack assembly</li></ul>
+            </div>
+            <div class="feature-visual">
+              <div class="term">
+                <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>nand2tetris</em></div>
+                <video class="term-video" poster="img/n2t-poster.jpg" width="1440" height="900" muted loop playsinline preload="none" aria-label="The Rust assembler turning Fill.asm into Fill.hack machine code, then Fill.hack running in the Nand2Tetris CPU Emulator, where holding a key fills the screen black and releasing it clears the screen">
+                  <source src="img/n2t-demo.mp4" type="video/mp4">
+                  <source src="img/n2t-demo.webm" type="video/webm">
+                </video>
+              </div>
+              <a class="term-link" href="img/n2t-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
 
         <ol class="tracklist more-tracks">
-          <li>
+          <li data-project="tracy" hidden>
+            <span class="code">A1</span>
+            <div class="what">
+              <h3>Tracy GDB Visualizer <span class="org">1st Place · Stanford CS 194 Capstone</span></h3>
+              <p>A debugger UI that shows source code and memory layout side by side as a program runs, with an AI assistant that explains runtime errors.</p>
+              <ul class="tags" aria-label="Technologies"><li>TypeScript</li><li>React</li><li>Flask</li><li>GDB</li></ul>
+              <button class="play" type="button" data-play="tracy" aria-controls="work-stage">Watch demo</button>
+            </div>
+            <span class="when">2025</span>
+          </li>
+          <li data-project="n2t">
             <span class="code">A2</span>
             <div class="what">
               <h3><a href="https://github.com/stevwya77/nand2tetris">Nand2Tetris <span class="ext" aria-hidden="true">↗</span></a> <span class="org">A computer from first principles</span></h3>
               <p>Built a working computer up from NAND gates, from logic gates through an ALU, RAM, and CPU in HDL, then wrote a two-pass assembler for it in Rust.</p>
               <ul class="tags" aria-label="Technologies"><li>Rust</li><li>HDL</li><li>Hack assembly</li></ul>
+              <button class="play" type="button" data-play="n2t" aria-controls="work-stage" hidden>Watch demo</button>
             </div>
             <span class="when">2025</span>
           </li>
@@ -278,6 +304,7 @@
     <div class="wrap footer-inner"><span>SW-077</span><span>℗ 2026 Stephanie Wyatt</span></div>
   </footer>
   <script src="progress.js?v=2"></script>
+  <script src="projects.js"></script>
   <script>
     // Build mailto links at runtime so the address never appears whole in the HTML.
     document.querySelectorAll('.js-email').forEach(function (a) {

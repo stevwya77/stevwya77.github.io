@@ -181,6 +181,36 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
 .term-link:hover { text-decoration: underline; }
 .term-link .ext { font-size: 0.9em; }
 
+/* Featured project swap (projects.js). Without JS only Tracy's card shows. */
+.stage { scroll-margin-top: 96px; }
+.feature[hidden], .tracklist > li[hidden], .play[hidden] { display: none; }
+.feature h3[tabindex="-1"]:focus:not(:focus-visible) { outline: none; }
+.feature h3 a { color: inherit; text-decoration: none; }
+.feature h3 a:hover { color: var(--moss); text-decoration: underline; }
+.feature h3 .ext { font-size: 0.6em; color: var(--moss); vertical-align: 0.35em; }
+.more-tracks > li.is-playable { cursor: pointer; }
+.play { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 6px 12px 6px 10px; font: 500 12px var(--font-mono); color: var(--moss); background: var(--paper); border: 1px solid color-mix(in oklab, var(--moss) 45%, var(--line)); border-radius: 6px; cursor: pointer; transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+.play::before { content: ""; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 8px; border-color: transparent transparent transparent currentColor; }
+.play:hover, .is-playable:hover .play { background: var(--moss); color: var(--moss-ink); border-color: var(--moss); }
+.play:focus-visible { outline: 2px solid var(--solar); outline-offset: 2px; }
+/* Swap animation. Each project keeps its own name, so cards slide to their new
+   places; a card changing size morphs its outline while its contents crossfade
+   at natural size instead of stretching.
+   Bounce's row (keyed row2 by projects.js) looks the same at both ends, so it
+   only shares the slide timing and keeps the default solid crossfade. */
+::view-transition-group(project-tracy), ::view-transition-group(project-n2t), ::view-transition-group(project-row2) {
+  animation-duration: .7s; animation-timing-function: cubic-bezier(.22, 1, .36, 1); overflow: clip; border-radius: 14px; }
+::view-transition-image-pair(project-tracy), ::view-transition-image-pair(project-n2t) { isolation: auto; }
+::view-transition-old(project-tracy), ::view-transition-old(project-n2t),
+::view-transition-new(project-tracy), ::view-transition-new(project-n2t) {
+  width: 100%; height: 100%; object-fit: none; object-position: top left; mix-blend-mode: normal; }
+::view-transition-old(project-tracy), ::view-transition-old(project-n2t) { animation: project-out .32s cubic-bezier(.4, 0, .6, 1) both; }
+::view-transition-new(project-tracy), ::view-transition-new(project-n2t) { animation: project-in .42s cubic-bezier(.4, 0, .2, 1) .14s both; }
+/* The rest of the page doesn't crossfade, so nothing ghosts behind the moving cards. */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+@keyframes project-out { to { opacity: 0; } }
+@keyframes project-in { from { opacity: 0; } }
+
 /* Tracklist */
 .tracklist { list-style: none; margin: 0; padding: 0; }
 .tracklist > li { display: grid; grid-template-columns: 44px 1fr auto; gap: 18px; padding: 22px 0; border-top: 1px dashed var(--fold); align-items: baseline; }
