@@ -285,7 +285,7 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
 
   /* Left panel */
   .hero {
-    grid-column: 1; grid-row: 1 / span 6; align-self: start;
+    grid-column: 1; grid-row: 1 / span 20; align-self: start;
     position: sticky; top: 0; height: 100vh; height: 100dvh;
     overflow-y: auto; scrollbar-width: none;
     padding: 0; display: flex;
@@ -462,4 +462,79 @@ h2 { text-shadow: var(--emboss); }
 
 @media (prefers-reduced-motion: reduce) {
   .btn:hover, .btn:active, .tags li:hover, .feature:hover, .bonus article:hover, .edu li:hover, .more-tracks > li:hover { transform: none; }
+}
+
+/* ------------------------------------------------------------------
+   Now recording: progress bars, filled from progress.js.
+   A recessed tape track with week ticks, a glossy striped fill, and a
+   little LCD counter.
+   ------------------------------------------------------------------ */
+.rec-dot { display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; vertical-align: 0;
+  background: radial-gradient(circle at 35% 30%, #ffb3b3 0 20%, #d64545 55%); box-shadow: 0 0 6px #ff6b6b; animation: rec-blink 1.6s steps(1) infinite; }
+@keyframes rec-blink { 50% { opacity: .25; box-shadow: none; } }
+
+.rec-list { list-style: none; margin: 0; padding: 6px 30px;
+  background: linear-gradient(180deg, var(--raise-top) 0%, var(--card) 38%, var(--raise-bot) 100%);
+  border: 1px solid var(--edge); border-radius: 14px;
+  box-shadow: inset 0 1px 0 var(--hi), inset 0 -2px 0 var(--lo), 0 4px 0 var(--ledge), 0 12px 20px -10px var(--drop); }
+.rec-item { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 24px 0; border-top: 1px dashed var(--fold); }
+.rec-item:first-child { border-top: 0; }
+.rec-item .code { display: inline-block; justify-self: start; align-self: start; margin-top: 3px; padding: 1px 5px; font-size: 12px; line-height: 1.6;
+  background: linear-gradient(180deg, var(--raise-top), var(--paper)); border: 1px solid var(--edge); border-radius: 6px;
+  box-shadow: inset 0 1px 0 var(--hi), 0 2px 0 var(--ledge); }
+
+.rec-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.rec-head h3 { margin: 0; }
+.rec-head h3 a { color: var(--ink); text-decoration: none; }
+.rec-head h3 a:hover { color: var(--moss); text-decoration: underline; }
+.rec-head .ext { font-size: 0.8em; color: var(--moss); }
+.rec-sub { margin: 2px 0 0; color: var(--moss); font-size: 15px; font-weight: 500; }
+
+.counter { flex: none; font-family: var(--font-mono); font-size: 15px; font-weight: 500; letter-spacing: .08em; line-height: 1;
+  color: #a6e3b0; background: var(--term-bg); padding: 6px 8px 5px; border-radius: 6px;
+  text-shadow: 0 0 6px color-mix(in oklab, #a6e3b0 55%, transparent);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, .65), 0 1px 0 var(--hi); }
+.counter small { font-size: 10px; margin-left: 2px; letter-spacing: 0; }
+
+.bar { position: relative; height: 18px; margin: 14px 0 10px; border-radius: 999px; overflow: hidden;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--ink) 11%, var(--paper)), var(--paper));
+  border: 1px solid var(--edge);
+  box-shadow: inset 0 2px 4px var(--lo), 0 1px 0 var(--hi); }
+.bar::after { content: ""; position: absolute; inset: 4px 0; pointer-events: none;
+  background: repeating-linear-gradient(90deg, transparent 0 calc(100% / var(--ticks) - 1px),
+    color-mix(in oklab, var(--ink) 20%, transparent) calc(100% / var(--ticks) - 1px) calc(100% / var(--ticks))); }
+.fill { position: absolute; left: 0; top: 0; bottom: 0; width: var(--pct); border-radius: 999px;
+  --gel: var(--moss);
+  background-image:
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, .2) 0 8px, transparent 8px 16px),
+    linear-gradient(180deg, color-mix(in oklab, #fff 35%, var(--gel)) 0%, color-mix(in oklab, #fff 8%, var(--gel)) 48%, var(--gel) 52%, color-mix(in oklab, #fff 12%, var(--gel)) 100%);
+  background-size: 22.63px 100%, 100% 100%;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .2), 1px 0 0 color-mix(in oklab, #000 30%, var(--gel));
+  transition: width 1.4s cubic-bezier(.2, .8, .2, 1);
+  animation: rec-roll 1.2s linear infinite; }
+.fill::after { content: ""; position: absolute; right: 1px; top: 3px; bottom: 3px; width: 3px; border-radius: 2px;
+  background: var(--solar); box-shadow: 0 0 6px var(--solar); }
+@keyframes rec-roll { to { background-position: 22.63px 0, 0 0; } }
+.rec-wait .fill { width: 0; }
+.is-done .fill { animation: none; }
+.is-done .fill::after { display: none; }
+
+.rec-now { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin: 0; font-size: 15px; color: var(--ink-soft); }
+.rec-now .due { font-family: var(--font-mono); font-size: 11.5px; white-space: nowrap; color: var(--ink);
+  background: color-mix(in oklab, var(--solar) 28%, transparent); border: 1px solid color-mix(in oklab, var(--solar) 55%, transparent);
+  padding: 2px 8px; border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rec-dot, .fill { animation: none; }
+  .fill { transition: none; }
+}
+@media (max-width: 640px) {
+  .rec-list { padding: 4px 18px; }
+  .rec-item { grid-template-columns: 32px 1fr; gap: 12px; }
+  .rec-head h3 { font-size: 17px; }
+}
+/* Seven nav entries now; keep the panel fitting on short screens. */
+@media (min-width: 1100px) and (max-height: 800px) {
+  .side-nav a { padding: 1px 0; }
+  .hero-grid { gap: 16px; }
 }
