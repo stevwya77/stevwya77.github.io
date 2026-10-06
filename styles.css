@@ -1,5 +1,5 @@
 /* Fonts carried over from the J-card design, self-hosted. */
-@font-face { font-family: "Michroma"; src: url("fonts/michroma-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Audiowide"; src: url("fonts/audiowide-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Instrument Sans"; src: url("fonts/instrument-sans-latin-wght-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
 @font-face { font-family: "Instrument Sans"; src: url("fonts/instrument-sans-latin-wght-italic.woff2") format("woff2"); font-weight: 400 700; font-style: italic; font-display: swap; }
 @font-face { font-family: "Martian Mono"; src: url("fonts/martian-mono-latin-wght-normal.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
@@ -23,7 +23,17 @@
   --bezel: #c9cfc0;
   --bezel-ink: #5d665a;
 
-  --font-display: "Michroma", "Eurostile", system-ui, sans-serif;
+  /* Depth: highlight, inner shade, solid ledge under raised things, soft drop. */
+  --hi: rgba(255, 255, 255, .85);
+  --lo: color-mix(in oklab, var(--ink) 9%, transparent);
+  --ledge: color-mix(in oklab, var(--moss) 26%, var(--ground));
+  --drop: color-mix(in oklab, var(--moss) 40%, transparent);
+  --raise-top: color-mix(in oklab, #fff 65%, var(--card));
+  --raise-bot: color-mix(in oklab, var(--ground) 45%, var(--card));
+  --edge: color-mix(in oklab, var(--moss) 24%, var(--line));
+  --emboss: 0 1px 0 rgba(255, 255, 255, .9);
+
+  --font-display: "Audiowide", "Eurostile", system-ui, sans-serif;
   --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "Martian Mono", ui-monospace, "SFMono-Regular", monospace;
   --max: 1060px;
@@ -45,6 +55,14 @@
     --term-bg: #0a120d;
     --bezel: #2b332c;
     --bezel-ink: #9aa69a;
+    --hi: rgba(255, 255, 255, .13);
+    --lo: rgba(0, 0, 0, .4);
+    --ledge: #040906;
+    --drop: rgba(0, 0, 0, .75);
+    --raise-top: color-mix(in oklab, #fff 6%, var(--card));
+    --raise-bot: color-mix(in oklab, #000 18%, var(--card));
+    --edge: color-mix(in oklab, var(--moss) 18%, var(--line));
+    --emboss: 0 -1px 0 rgba(0, 0, 0, .7);
   }
 }
 
@@ -353,4 +371,95 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
 }
 @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
   .more-tracks > li:hover { transform: none; }
+}
+
+/* ------------------------------------------------------------------
+   Depth: early-2000s raised plastic. Bevel highlight on top, a solid
+   ledge underneath, glossy gel buttons that press down when clicked.
+   ------------------------------------------------------------------ */
+h1 { text-shadow: var(--emboss), 2px 3px 0 color-mix(in oklab, var(--moss) 20%, transparent); }
+h2 { text-shadow: var(--emboss); }
+
+/* Raised cards */
+.feature, .bonus article, .edu li {
+  background: linear-gradient(180deg, var(--raise-top) 0%, var(--card) 38%, var(--raise-bot) 100%);
+  border: 1px solid var(--edge);
+  box-shadow: inset 0 1px 0 var(--hi), inset 0 -2px 0 var(--lo), 0 4px 0 var(--ledge), 0 12px 20px -10px var(--drop);
+}
+.feature:hover, .bonus article:hover, .edu li:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--moss) 45%, var(--line));
+  box-shadow: inset 0 1px 0 var(--hi), inset 0 -2px 0 var(--lo), 0 6px 0 var(--ledge), 0 18px 26px -12px var(--drop);
+}
+
+/* Gel buttons */
+.btn, .nav .nav-cta {
+  background: linear-gradient(180deg, var(--raise-top) 0%, var(--card) 48%, var(--raise-bot) 52%, var(--card) 100%);
+  border: 1px solid color-mix(in oklab, var(--ink) 22%, transparent);
+  box-shadow: inset 0 1px 0 var(--hi), 0 3px 0 var(--ledge), 0 6px 10px -6px var(--drop);
+}
+.btn-primary, .nav .nav-cta:hover {
+  --gel: var(--moss);
+  background: linear-gradient(180deg, color-mix(in oklab, #fff 32%, var(--gel)) 0%, color-mix(in oklab, #fff 8%, var(--gel)) 48%, var(--gel) 52%, color-mix(in oklab, #fff 10%, var(--gel)) 100%);
+  border-color: color-mix(in oklab, #000 25%, var(--gel));
+  color: var(--moss-ink);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 3px 0 color-mix(in oklab, #000 40%, var(--gel)), 0 6px 12px -6px var(--drop);
+  text-shadow: 0 -1px 0 color-mix(in oklab, #000 30%, var(--gel));
+}
+.btn:hover { transform: translateY(-1px); filter: brightness(1.04); }
+.btn:not(.btn-primary):hover { border-color: color-mix(in oklab, var(--ink) 40%, transparent); box-shadow: inset 0 1px 0 var(--hi), 0 4px 0 var(--ledge), 0 8px 14px -6px var(--drop); }
+.btn-primary:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 4px 0 color-mix(in oklab, #000 40%, var(--gel)), 0 8px 16px -6px var(--drop); }
+.btn:active, .btn:hover:active { transform: translateY(3px); filter: brightness(.97);
+  box-shadow: inset 0 2px 4px var(--lo), 0 0 0 var(--ledge); }
+.nav .nav-cta { color: var(--moss); box-shadow: inset 0 1px 0 var(--hi), 0 2px 0 var(--ledge); }
+
+/* Tags and track numbers: little embossed keycaps */
+.tags li, .tracklist .code, .track-title .code, .bonus .code {
+  background: linear-gradient(180deg, var(--raise-top), var(--paper));
+  border: 1px solid var(--edge);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 var(--hi), 0 2px 0 var(--ledge);
+}
+.tracklist .code, .track-title .code, .bonus .code { display: inline-block; padding: 1px 5px; font-size: 12px; line-height: 1.6; justify-self: start; }
+.tags li:hover { transform: translateY(-1px); box-shadow: inset 0 1px 0 var(--hi), 0 3px 0 var(--ledge); }
+
+/* Status pill and award badge */
+.status { border: 1px solid var(--edge); box-shadow: inset 0 1px 0 var(--hi), inset 0 -1px 0 var(--lo), 0 2px 0 var(--ledge); }
+.award {
+  background: linear-gradient(180deg, color-mix(in oklab, #fff 45%, var(--solar)) 0%, color-mix(in oklab, #fff 20%, var(--solar)) 50%, color-mix(in oklab, #fff 5%, var(--solar)) 51%, color-mix(in oklab, #fff 25%, var(--solar)) 100%);
+  border: 1px solid color-mix(in oklab, #000 18%, var(--solar));
+  color: #2b2106;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6), 0 2px 0 color-mix(in oklab, #000 35%, var(--solar));
+}
+
+/* Terminal: a raised window with a glossy title bar and a recessed screen */
+.term { border: 1px solid color-mix(in oklab, #000 40%, var(--term-bg));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 4px 0 color-mix(in oklab, #000 45%, var(--term-bg)), 0 18px 34px -16px rgba(0, 0, 0, .55); }
+.term-bar { background: linear-gradient(180deg, #3d5444 0%, #2a3d30 50%, #22342a 51%, #2b3f32 100%); border-bottom: 1px solid #0b140e; }
+.term-bar span { background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.75) 0 18%, transparent 45%), var(--c, #6f8a76); box-shadow: inset 0 -1px 1px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,.1); }
+.term-bar span:nth-child(1) { --c: #d64545; }
+.term-bar span:nth-child(2) { --c: #e5b33a; }
+.term-bar span:nth-child(3) { --c: #5fae6e; }
+.term pre { box-shadow: inset 0 3px 10px rgba(0, 0, 0, .55); }
+
+/* Handheld: molded plastic shell with a recessed screen */
+.bezel { background: linear-gradient(165deg, color-mix(in oklab, #fff 28%, var(--bezel)) 0%, var(--bezel) 45%, color-mix(in oklab, #000 10%, var(--bezel)) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .55), inset 0 -3px 0 rgba(0, 0, 0, .08), 0 5px 0 color-mix(in oklab, #000 22%, var(--bezel)), 0 22px 40px -20px var(--drop); }
+.portrait { box-shadow: 0 1px 0 rgba(255, 255, 255, .5); }
+
+@media (min-width: 1100px) {
+  .more-tracks > li, .more-tracks > li:first-child {
+    background: linear-gradient(180deg, var(--raise-top) 0%, var(--card) 38%, var(--raise-bot) 100%);
+    border: 1px solid var(--edge);
+    box-shadow: inset 0 1px 0 var(--hi), inset 0 -2px 0 var(--lo), 0 4px 0 var(--ledge), 0 12px 20px -10px var(--drop);
+  }
+  .more-tracks > li:hover { transform: translateY(-2px); border-color: color-mix(in oklab, var(--moss) 45%, var(--line));
+    box-shadow: inset 0 1px 0 var(--hi), inset 0 -2px 0 var(--lo), 0 6px 0 var(--ledge), 0 18px 26px -12px var(--drop); }
+  /* The panel sits slightly above the content column. */
+  .hero { box-shadow: inset -1px 0 0 var(--hi), 8px 0 22px -16px var(--drop); z-index: 1; }
+  .side-nav a[aria-current] .code { text-shadow: var(--emboss); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover, .btn:active, .tags li:hover, .feature:hover, .bonus article:hover, .edu li:hover, .more-tracks > li:hover { transform: none; }
 }
