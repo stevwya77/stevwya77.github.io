@@ -136,6 +136,7 @@ var NOW_RECORDING = [
         '<span class="counter" aria-hidden="true">' + pad(s.pct) + '<small>%</small></span></div>' +
         (sub ? '<p class="rec-sub">' + sub + '</p>' : '') +
         '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + shown + '" aria-valuetext="' + esc(label) + '" aria-label="' + esc(item.title) + ' progress" style="--ticks:' + s.ticks + '">' +
+          '<span class="glow" style="--pct:' + s.pct.toFixed(2) + '%"></span>' +
           '<span class="fill" style="--pct:' + s.pct.toFixed(2) + '%"></span>' +
         '</div>' +
         '<p class="rec-now"><span>' + esc(s.where) + '</span>' + (s.due ? '<span class="due">Due: ' + esc(s.due) + '</span>' : '') + '</p>' +
