@@ -328,7 +328,16 @@
     <div class="wrap footer-inner"><span>SW-077</span><span>℗ 2026 Stephanie Wyatt</span></div>
   </footer>
   <script src="progress.js?v=2"></script>
+  <dialog class="viewer" aria-labelledby="viewer-title">
+    <div class="viewer-window">
+      <div class="term-bar viewer-bar"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><em id="viewer-title">demo</em>
+        <button class="viewer-close" type="button" aria-label="Close video">×</button>
+      </div>
+      <video class="viewer-video" controls playsinline muted loop></video>
+    </div>
+  </dialog>
   <script src="projects.js"></script>
+  <script src="viewer.js"></script>
   <script>
     // Build mailto links at runtime so the address never appears whole in the HTML.
     document.querySelectorAll('.js-email').forEach(function (a) {

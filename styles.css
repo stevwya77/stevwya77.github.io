@@ -182,6 +182,24 @@ h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; font-weight: 600; }
 .term-link:hover { text-decoration: underline; }
 .term-link .ext { font-size: 0.9em; }
 
+/* Full-size video player (viewer.js). Closes with ×, Esc, or a click outside. */
+.viewer { padding: 0; border: 0; background: transparent; max-width: none; max-height: none; width: min(1200px, calc(100vw - 32px), calc((100vh - 96px) * 1.6)); overflow: visible; }
+.viewer::backdrop { background: rgba(6, 12, 8, .78); backdrop-filter: blur(3px); }
+.viewer-window { background: var(--term-bg); border-radius: 12px; overflow: hidden; border: 1px solid color-mix(in oklab, #000 40%, var(--term-bg)); box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .7); }
+.viewer-bar { position: relative; }
+.viewer-bar em { font-size: 12px; }
+.viewer-close { margin-left: auto; width: 32px; height: 32px; display: grid; place-items: center; font: 400 24px/1 var(--font-mono); color: var(--term-text); background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14); border-radius: 8px; cursor: pointer; transition: background-color .15s ease; }
+.viewer-close:hover { background: rgba(255, 255, 255, .18); }
+.viewer-close:focus-visible { outline: 2px solid var(--solar); outline-offset: 2px; }
+.viewer-video { display: block; width: 100%; height: auto; max-height: calc(100vh - 120px); background: #000; object-fit: contain; }
+.viewer[open] .viewer-window { animation: viewer-in .22s cubic-bezier(.2, .8, .2, 1); }
+.viewer[open]::backdrop { animation: viewer-fade .22s ease; }
+@keyframes viewer-in { from { opacity: 0; transform: translateY(8px) scale(.98); } }
+@keyframes viewer-fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .viewer[open] .viewer-window, .viewer[open]::backdrop { animation: none; }
+}
+
 /* Featured project swap (projects.js). Without JS only Tracy's card shows. */
 .stage { scroll-margin-top: 96px; }
 .feature[hidden], .tracklist > li[hidden], .play[hidden] { display: none; }
