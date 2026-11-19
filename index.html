@@ -9,11 +9,12 @@
   <meta property="og:title" content="Stephanie Wyatt | Software Engineer">
   <meta property="og:description" content="Software engineer in New York. Full-stack developer tools and enterprise automation.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#eef3e6">
+  <meta name="theme-color" content="#faf4ed" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#191724" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="fonts/audiowide-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="preload" href="fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/covered-by-your-grace-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=17">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -23,10 +24,11 @@
       <a class="brand" href="#top" aria-label="Stephanie Wyatt, home">SW-077</a>
       <nav aria-label="Primary">
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li class="nav-sec"><a href="#about">About</a></li>
+          <li class="nav-sec"><a href="#work">Projects</a></li>
+          <li class="nav-sec"><a href="#oss">Open source</a></li>
+          <li class="nav-sec"><a href="#experience">Experience</a></li>
+          <li class="nav-sec"><a href="#contact">Contact</a></li>
           <li><a class="nav-cta" href="resume.pdf">Resume</a></li>
         </ul>
       </nav>
@@ -34,18 +36,12 @@
   </header>
 
   <main id="main">
+    <!-- Side A label: the cassette is the one big visual on the page. -->
     <section class="hero" id="top">
-      <svg class="pcb" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" opacity="0.17" style="position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none">
-      <g class="traces" fill="none" stroke="#2f5f3f" stroke-width="2"><path d="M-10 90 H300 L340 130 H640 L680 90 H900"/><path d="M-10 560 H180 L230 510 H470 L510 550 H760"/><path d="M1450 70 H1180 L1140 110 H1020 L980 150 V260"/><path d="M1450 600 H1260 L1220 560 V420 L1180 380 H1080"/><path d="M760 -10 V40 L800 80 H980"/><path d="M1450 330 H1330 L1300 300 H1240"/><path d="M60 -10 V40 L100 80 H200"/><path d="M600 650 V610 L640 570 H900 L940 610 H1100"/><path d="M1450 470 H1380 L1350 500 H1300"/></g>
-      <g class="pulses" fill="none" stroke="none"><path pathLength="1000" style="--d:0.0s" d="M-10 90 H300 L340 130 H640 L680 90 H900"/><path pathLength="1000" style="--d:1.7s" d="M1450 70 H1180 L1140 110 H1020 L980 150 V260"/><path pathLength="1000" style="--d:3.4s" d="M1450 600 H1260 L1220 560 V420 L1180 380 H1080"/><path pathLength="1000" style="--d:5.1s" d="M600 650 V610 L640 570 H900 L940 610 H1100"/></g>
-      <g class="vias" fill="none" stroke="#2f5f3f" stroke-width="2"><circle cx="900" cy="90" r="5"/><circle cx="760" cy="550" r="5"/><circle cx="980" cy="260" r="5"/><circle cx="1080" cy="380" r="5"/><circle cx="980" cy="80" r="5"/><circle cx="1240" cy="300" r="5"/><circle cx="200" cy="80" r="5"/><circle cx="1100" cy="610" r="5"/><circle cx="1300" cy="500" r="5"/><circle cx="640" cy="130" r="5"/><circle cx="470" cy="510" r="5"/></g>
-      <g class="vines" fill="none" stroke="none"><path pathLength="1000" style="--d:0.0s" d="M1450 40 C1360 60 1300 120 1220 100 C1140 80 1080 60 1020 130 C960 200 990 230 965 272"/><path pathLength="1000" style="--d:0.4s" d="M1450 630 C1380 600 1330 560 1250 580 C1170 600 1200 470 1230 430 C1260 390 1150 360 1090 395"/><path pathLength="1000" style="--d:0.8s" d="M-10 112 C80 70 160 140 250 100 C340 60 400 150 470 115 C540 80 620 70 700 112"/><path pathLength="1000" style="--d:1.2s" d="M620 650 C660 590 720 600 780 585 C840 570 880 560 930 600"/></g>
-      <g class="leaves" fill="#2f5f3f" opacity="0"><g transform="translate(1399.2 55.8) rotate(214) scale(0.80)"><path class="leaf" style="--d:0.0s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1320.4 89.3) rotate(104) scale(1.04)"><path class="leaf" style="--d:0.9s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1254.8 104.0) rotate(234) scale(0.94)"><path class="leaf" style="--d:1.8s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1174.2 88.7) rotate(-222) scale(0.84)"><path class="leaf" style="--d:2.7s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1102.8 82.0) rotate(228) scale(1.08)"><path class="leaf" style="--d:3.6s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1047.1 104.3) rotate(88) scale(0.98)"><path class="leaf" style="--d:4.5s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(993.6 167.6) rotate(173) scale(0.87)"><path class="leaf" style="--d:5.4s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(978.6 217.9) rotate(42) scale(1.11)"><path class="leaf" style="--d:0.0s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(973.0 253.7) rotate(162) scale(1.01)"><path class="leaf" style="--d:0.9s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1410.0 611.4) rotate(-99) scale(0.91)"><path class="leaf" style="--d:1.8s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1344.3 583.1) rotate(-218) scale(0.80)"><path class="leaf" style="--d:2.7s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1284.1 574.8) rotate(232) scale(1.04)"><path class="leaf" style="--d:3.6s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1214.3 575.9) rotate(-197) scale(0.94)"><path class="leaf" style="--d:4.5s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1199.5 516.8) rotate(-29) scale(0.84)"><path class="leaf" style="--d:5.4s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1216.9 453.3) rotate(-121) scale(1.08)"><path class="leaf" style="--d:0.0s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1232.7 407.6) rotate(-65) scale(0.98)"><path class="leaf" style="--d:0.9s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1184.1 382.2) rotate(-225) scale(0.87)"><path class="leaf" style="--d:1.8s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(1119.7 383.5) rotate(221) scale(1.11)"><path class="leaf" style="--d:2.7s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(43.0 98.5) rotate(51) scale(1.01)"><path class="leaf" style="--d:3.6s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(132.8 107.4) rotate(-46) scale(0.91)"><path class="leaf" style="--d:4.5s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(210.1 111.3) rotate(47) scale(0.80)"><path class="leaf" style="--d:5.4s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(300.7 89.6) rotate(-53) scale(1.04)"><path class="leaf" style="--d:0.0s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(377.9 109.5) rotate(75) scale(0.94)"><path class="leaf" style="--d:0.9s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(439.0 123.2) rotate(-58) scale(0.84)"><path class="leaf" style="--d:1.8s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(513.1 97.2) rotate(37) scale(1.08)"><path class="leaf" style="--d:2.7s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(592.9 84.4) rotate(-54) scale(0.98)"><path class="leaf" style="--d:3.6s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(664.0 96.5) rotate(74) scale(0.87)"><path class="leaf" style="--d:4.5s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(646.2 621.6) rotate(18) scale(1.11)"><path class="leaf" style="--d:5.4s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(700.8 598.7) rotate(-67) scale(1.01)"><path class="leaf" style="--d:0.0s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(753.1 590.4) rotate(46) scale(0.91)"><path class="leaf" style="--d:0.9s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(813.8 577.0) rotate(-67) scale(0.80)"><path class="leaf" style="--d:1.8s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(865.8 572.3) rotate(60) scale(1.04)"><path class="leaf" style="--d:2.7s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g><g transform="translate(908.1 585.2) rotate(-26) scale(0.94)"><path class="leaf" style="--d:3.6s" d="M0 0 C5 -7 15 -8 22 0 C15 8 5 7 0 0Z"/></g></g>
-      </svg>
       <div class="wrap hero-grid">
         <div class="hero-text">
-          <p class="eyebrow">Software Engineer · New York, NY</p>
-          <h1>Stephanie<br>Wyatt</h1>
+          <p class="eyebrow">Software engineer in New York</p>
+          <h1>Stephanie Wyatt</h1>
           <p class="lede">I build full-stack developer tools and automate the enterprise systems people rely on every day.</p>
           <p class="status"><span class="dot" aria-hidden="true"></span>Open to software engineering roles in the NYC area, full-time or contract.</p>
           <div class="actions">
@@ -54,280 +50,381 @@
             <a class="btn btn-ghost" href="https://github.com/stevwya77">GitHub</a>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/stephanie-wyatt25">LinkedIn</a>
           </div>
-          <!-- Desktop-only section nav; the top bar handles navigation on smaller screens. -->
-          <nav class="side-nav" aria-label="Sections">
-            <ol>
-              <li><a href="#about"><span class="code">00</span>About</a></li>
-              <li><a href="#work"><span class="code">A</span>Projects</a></li>
-              <li><a href="#experience"><span class="code">B</span>Experience</a></li>
-              <li><a href="#now"><span class="code">R</span>Now recording</a></li>
-              <li><a href="#offclock"><span class="code">+</span>Off the clock</a></li>
-              <li><a href="#credits"><span class="code">C</span>Skills and education</a></li>
-              <li><a href="#contact"><span class="code">→</span>Contact</a></li>
-            </ol>
-          </nav>
         </div>
-        <figure class="handheld">
-          <div class="bezel">
-            <div class="bezel-top"><span class="led" aria-hidden="true"></span><span>SW-077</span></div>
-            <img class="portrait" src="img/portrait.png" srcset="img/portrait.png 1x, img/portrait@2x.png 2x, img/portrait@3x.png 3x" width="256" height="256" alt="Portrait of Stephanie Wyatt, dithered in shades of green like an old handheld game screen.">
-          </div>
-          <figcaption>As seen on STN LCD.</figcaption>
+
+        <figure class="tape">
+          <svg class="cassette" viewBox="0 0 1000 640" role="img" aria-labelledby="cassette-title">
+            <title id="cassette-title">A cassette tape with "Stephanie Wyatt" handwritten on its label, her portrait in the corner, and a rose-coloured band across the middle.</title>
+            <defs>
+              <linearGradient id="c-shell-shade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity=".14"/>
+                <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="1" stop-color="#000" stop-opacity=".16"/>
+              </linearGradient>
+              <clipPath id="c-band-clip"><rect x="56" y="250" width="888" height="156"/></clipPath>
+            </defs>
+
+            <rect class="c-shell" x="4" y="4" width="992" height="632" rx="34"/>
+            <rect x="4" y="4" width="992" height="632" rx="34" fill="url(#c-shell-shade)"/>
+            <g class="c-screws">
+              <circle cx="32" cy="32" r="12"/><circle cx="968" cy="32" r="12"/>
+              <circle cx="32" cy="608" r="12"/><circle cx="968" cy="608" r="12"/><circle cx="500" cy="604" r="12"/>
+            </g>
+            <path class="c-screw-slots" d="M25 32h14M961 32h14M25 608h14M961 608h14M493 604h14"/>
+
+            <!-- Label -->
+            <rect class="c-label" x="56" y="48" width="888" height="420" rx="10"/>
+            <rect class="c-photo" x="84" y="76" width="152" height="152" rx="3"/>
+            <image href="img/portrait@2x.png" x="90" y="82" width="140" height="140" preserveAspectRatio="xMidYMid slice" style="image-rendering: pixelated"/>
+            <path class="c-lines" d="M266 132H912M266 198H912"/>
+            <text class="c-hand c-hand-1" x="272" y="122">Stephanie Wyatt</text>
+            <text class="c-hand c-hand-2" x="276" y="188">selected works '18 – '26</text>
+
+            <!-- Colour band: rings and a big A on the left, the length on the right -->
+            <rect class="c-band" x="56" y="250" width="888" height="156"/>
+            <g clip-path="url(#c-band-clip)" class="c-rings">
+              <circle cx="150" cy="328" r="34"/><circle cx="150" cy="328" r="58"/><circle cx="150" cy="328" r="82"/><circle cx="150" cy="328" r="106"/>
+            </g>
+            <text class="c-side" x="150" y="358" text-anchor="middle">A</text>
+            <text class="c-len" x="916" y="336" text-anchor="end">C-90</text>
+            <text class="c-noise" x="914" y="374" text-anchor="end">low noise</text>
+
+            <!-- Window: two toothed hubs and the tape between them -->
+            <rect class="c-window" x="292" y="266" width="416" height="124" rx="62"/>
+            <rect class="c-tape" x="446" y="300" width="108" height="56" rx="4"/>
+            <rect class="c-tape-edge" x="446" y="300" width="108" height="10"/>
+            <g class="c-reel c-reel-l">
+              <circle class="c-hub" cx="372" cy="328" r="42"/>
+              <circle class="c-hole" cx="372" cy="328" r="22"/>
+              <path class="c-teeth" d="M372 306v10M372 350v-10M353 317l8.7 5M391 339l-8.7-5M353 339l8.7-5M391 317l-8.7 5"/>
+            </g>
+            <g class="c-reel c-reel-r">
+              <circle class="c-hub" cx="628" cy="328" r="42"/>
+              <circle class="c-hole" cx="628" cy="328" r="22"/>
+              <path class="c-teeth" d="M628 306v10M628 350v-10M609 317l8.7 5M647 339l-8.7-5M609 339l8.7-5M647 317l-8.7 5"/>
+            </g>
+
+            <!-- Wordmark row -->
+            <text class="c-mark" x="84" y="448">SW-077</text>
+            <rect class="c-pill" x="694" y="420" width="218" height="38" rx="19"/>
+            <text class="c-pill-text" x="803" y="446" text-anchor="middle">Full-Stack</text>
+
+            <!-- Head opening along the bottom -->
+            <path class="c-bottom" d="M196 636 L232 512 H768 L804 636 Z"/>
+            <rect class="c-tape-run" x="232" y="618" width="536" height="6"/>
+            <g class="c-holes">
+              <circle cx="300" cy="566" r="17"/><circle cx="700" cy="566" r="17"/>
+              <rect x="430" y="548" width="26" height="32" rx="3"/><rect x="544" y="548" width="26" height="32" rx="3"/>
+            </g>
+          </svg>
         </figure>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="wrap grid-2">
-        <div class="sec-head"><span class="side">Liner notes</span><h2>About</h2></div>
-        <div class="prose">
-          <p>I'm finishing a B.S. in Computer Science at Stanford, expected June 2027, after four years in enterprise IT. At Goldman Sachs I automated role-based provisioning for 15,000+ employees across 24 offices.</p>
-          <p>I like understanding how systems fail and building tools that make failures easier to see and fix. I hold AWS Cloud Practitioner and Security+ certifications and I'm completing <a href="https://www.codepath.org">CodePath</a>'s open source capstone.</p>
-        </div>
-      </div>
-    </section>
+    <!-- Everything below the hero: a grid of panels over a light tape pattern. -->
+    <div class="lower">
+      <div class="wrap modules">
+        <section id="about" class="section panel">
+          <div class="sec-head"><h2>About</h2><p class="sec-note">Liner notes</p></div>
+          <div class="prose">
+            <p>I'm a Computer Science student at Stanford with four years of experience in enterprise IT. At Goldman Sachs I automated role-based provisioning for 15,000+ employees across 24 offices.</p>
+            <p>I like understanding how systems fail and building tools that make failures easier to see and fix. I hold AWS Cloud Practitioner and Security+ certifications.</p>
+          </div>
+        </section>
 
-    <section id="work" class="section">
-      <div class="wrap">
-        <div class="sec-head"><span class="side">Side A</span><h2>Projects</h2></div>
+        <section id="work" class="section">
+          <div class="sec-head"><span class="side-badge side-a" aria-hidden="true">A</span><h2>Projects</h2><p class="sec-note">Side A</p></div>
 
-        <div class="stage" id="work-stage">
-          <article class="feature" data-project="tracy" aria-labelledby="tracy-title">
-            <div class="feature-body">
-              <div class="track-title"><span class="code">A1</span><h3 id="tracy-title" tabindex="-1">Tracy GDB Visualizer</h3></div>
-              <p class="award">1st Place and Microsoft Award · Stanford CS 194 Senior Capstone Competition</p>
-              <p class="meta">Lead Developer · Apr 2025 – Jun 2025</p>
-              <p>A debugger UI that shows source code and memory layout side by side as a program runs. A React and TypeScript frontend sits on a Flask backend that streams live GDB state.</p>
-              <ul class="points">
-                <li>Built session state management with low-level register tracking, so stack updates, breakpoints, and segfaults surface in real time.</li>
-                <li>Integrated an AI assistant that uses the live debugging context to explain runtime errors and offer targeted hints.</li>
-              </ul>
-              <ul class="tags" aria-label="Technologies">
-                <li>TypeScript</li><li>React</li><li>Vite</li><li>Python</li><li>Flask</li><li>C</li><li>GDB</li><li>pygdbmi</li>
-              </ul>
-            </div>
-            <div class="feature-visual">
-              <div class="term">
-                <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>tracy</em></div>
-                <video class="term-video" poster="img/tracy-poster.jpg" width="1440" height="900" muted loop playsinline preload="metadata" aria-label="Tracy stepping through a C program from main into foo and bar, showing stack frames and memory update, then catching a segmentation fault, offering an AI hint, and scrolling up the stack to show the calling frames">
-                  <source src="img/tracy-demo.mp4" type="video/mp4">
-                  <source src="img/tracy-demo.webm" type="video/webm">
-                </video>
+          <div class="stage" id="work-stage">
+            <article class="feature" data-project="tracy" aria-labelledby="tracy-title">
+              <div class="feature-head">
+                <div class="track-title"><span class="code">A1</span><h3 id="tracy-title" tabindex="-1">Tracy GDB Visualizer</h3></div>
+                <p class="award">1st Place and Microsoft Award, Stanford CS 194 Senior Capstone Competition</p>
+                <p class="meta">Lead Developer · Apr 2025 – Jun 2025</p>
               </div>
-              <a class="term-link" href="img/tracy-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="feature" data-project="n2t" aria-labelledby="n2t-title" hidden>
-            <div class="feature-body">
-              <div class="track-title"><span class="code">A2</span><h3 id="n2t-title" tabindex="-1"><a href="https://github.com/stevwya77/nand2tetris">Nand2Tetris <span class="ext" aria-hidden="true">↗</span></a></h3></div>
-              <p class="meta">A computer from first principles · 2025</p>
-              <p>A working computer built up from a single NAND gate, following <cite>The Elements of Computing Systems</cite>. The hardware is written in HDL, and the assembler for it is written in Rust.</p>
-              <ul class="points">
-                <li>Built the chips in HDL from NAND up: logic gates and multiplexers, adders and the ALU, registers and RAM, then the Hack CPU and computer.</li>
-                <li>Wrote a two-pass assembler in Rust. The first pass records label addresses, the second translates each instruction into 16-bit machine code and allocates variables from RAM address 16.</li>
-              </ul>
-              <ul class="tags" aria-label="Technologies"><li>Rust</li><li>HDL</li><li>Hack assembly</li></ul>
-            </div>
-            <div class="feature-visual">
-              <div class="term">
-                <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>nand2tetris</em></div>
-                <video class="term-video" poster="img/n2t-poster.jpg" width="1440" height="900" muted loop playsinline preload="none" aria-label="The Rust assembler turning Fill.asm into Fill.hack machine code, then Fill.hack running in the Nand2Tetris CPU Emulator, where holding a key fills the screen black and releasing it clears the screen">
-                  <source src="img/n2t-demo.mp4" type="video/mp4">
-                  <source src="img/n2t-demo.webm" type="video/webm">
-                </video>
+              <div class="feature-visual">
+                <div class="term">
+                  <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>tracy</em></div>
+                  <video class="term-video" poster="img/tracy-poster.jpg" width="1440" height="900" muted loop playsinline preload="metadata" aria-label="Tracy stepping through a C program from main into foo and bar, showing stack frames and memory update, then catching a segmentation fault, offering an AI hint, and scrolling up the stack to show the calling frames">
+                    <source src="img/tracy-demo.mp4" type="video/mp4">
+                    <source src="img/tracy-demo.webm" type="video/webm">
+                  </video>
+                </div>
+                <a class="term-link" href="img/tracy-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
               </div>
-              <a class="term-link" href="img/n2t-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="feature" data-project="bounce" aria-labelledby="bounce-title" hidden>
-            <div class="feature-body">
-              <div class="track-title"><span class="code">A3</span><h3 id="bounce-title" tabindex="-1"><a href="https://github.com/stevwya77/bounce">Bounce <span class="ext" aria-hidden="true">↗</span></a></h3></div>
-              <p class="meta">Arcade game · 2026</p>
-              <p>A paddle-and-ball arcade game in C++20 with SFML 3. A new ball drops in every two seconds and they never leave on their own, so keeping them all in the air gets harder the longer you last.</p>
-              <ul class="points">
-                <li>Built the game loop on SFML 3, with delta-time movement so speed stays the same at any frame rate, and paddle collisions that score a point and play a sound.</li>
-                <li>Shows score and lives on screen, saves the high score to a file between runs, and keeps tuning values like speeds, sizes, and volumes in one config struct.</li>
-              </ul>
-              <ul class="tags" aria-label="Technologies"><li>C++20</li><li>SFML</li><li>CMake</li></ul>
-            </div>
-            <div class="feature-visual">
-              <div class="term">
-                <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>bounce</em></div>
-                <video class="term-video is-wide" poster="img/bounce-poster.jpg" width="1440" height="810" muted loop playsinline preload="none" aria-label="A game of Bounce from start to finish: green balls spawn and are kept in the air with the paddle as the score climbs, lives drop as balls are missed, and the game resets to zero">
-                  <source src="img/bounce-demo.mp4" type="video/mp4">
-                  <source src="img/bounce-demo.webm" type="video/webm">
-                </video>
+              <div class="feature-body">
+                <p>A debugger UI that shows source code and memory layout side by side as a program runs. A React and TypeScript frontend sits on a Flask backend that streams live GDB state.</p>
+                <ul class="points">
+                  <li>Built session state management with low-level register tracking, so stack updates, breakpoints, and segfaults surface in real time.</li>
+                  <li>Integrated an AI assistant that uses the live debugging context to explain runtime errors and offer targeted hints.</li>
+                </ul>
+                <ul class="tags" aria-label="Technologies">
+                  <li>TypeScript</li><li>React</li><li>Vite</li><li>Python</li><li>Flask</li><li>C</li><li>GDB</li><li>pygdbmi</li>
+                </ul>
               </div>
-              <a class="term-link" href="img/bounce-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-        </div>
+            </article>
 
-        <ol class="tracklist more-tracks">
-          <li data-project="tracy" hidden>
-            <span class="code">A1</span>
-            <div class="what">
-              <h3>Tracy GDB Visualizer <span class="org">1st Place · Stanford CS 194 Capstone</span></h3>
-              <p>A debugger UI that shows source code and memory layout side by side as a program runs, with an AI assistant that explains runtime errors.</p>
-              <ul class="tags" aria-label="Technologies"><li>TypeScript</li><li>React</li><li>Flask</li><li>GDB</li></ul>
-              <button class="play" type="button" data-play="tracy" aria-controls="work-stage">Watch demo</button>
-            </div>
-            <span class="when">2025</span>
-          </li>
-          <li data-project="n2t">
-            <span class="code">A2</span>
-            <div class="what">
-              <h3><a href="https://github.com/stevwya77/nand2tetris">Nand2Tetris <span class="ext" aria-hidden="true">↗</span></a> <span class="org">A computer from first principles</span></h3>
-              <p>Built a working computer up from NAND gates, from logic gates through an ALU, RAM, and CPU in HDL, then wrote a two-pass assembler for it in Rust.</p>
-              <ul class="tags" aria-label="Technologies"><li>Rust</li><li>HDL</li><li>Hack assembly</li></ul>
-              <button class="play" type="button" data-play="n2t" aria-controls="work-stage" hidden>Watch demo</button>
-            </div>
-            <span class="when">2025</span>
-          </li>
-          <li data-project="bounce">
-            <span class="code">A3</span>
-            <div class="what">
-              <h3><a href="https://github.com/stevwya77/bounce">Bounce <span class="ext" aria-hidden="true">↗</span></a> <span class="org">Arcade game</span></h3>
-              <p>A paddle-and-ball arcade game in C++20 with SFML, including sound, music, a config file, and saved high scores.</p>
-              <ul class="tags" aria-label="Technologies"><li>C++20</li><li>SFML</li><li>CMake</li></ul>
-              <button class="play" type="button" data-play="bounce" aria-controls="work-stage" hidden>Watch demo</button>
-            </div>
-            <span class="when">2026</span>
-          </li>
-        </ol>
-      </div>
-    </section>
+            <article class="feature" data-project="n2t" aria-labelledby="n2t-title" hidden>
+              <div class="feature-head">
+                <div class="track-title"><span class="code">A2</span><h3 id="n2t-title" tabindex="-1"><a href="https://github.com/stevwya77/nand2tetris">Nand2Tetris <span class="ext" aria-hidden="true">↗</span></a></h3></div>
+                <p class="meta">A computer from first principles · 2025</p>
+              </div>
+              <div class="feature-visual">
+                <div class="term">
+                  <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>nand2tetris</em></div>
+                  <video class="term-video" poster="img/n2t-poster.jpg" width="1440" height="900" muted loop playsinline preload="none" aria-label="The Rust assembler turning Fill.asm into Fill.hack machine code, then Fill.hack running in the Nand2Tetris CPU Emulator, where holding a key fills the screen black and releasing it clears the screen">
+                    <source src="img/n2t-demo.mp4" type="video/mp4">
+                    <source src="img/n2t-demo.webm" type="video/webm">
+                  </video>
+                </div>
+                <a class="term-link" href="img/n2t-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
+              </div>
+              <div class="feature-body">
+                <p>A working computer built up from a single NAND gate, following <cite>The Elements of Computing Systems</cite>. The hardware is written in HDL, and the assembler for it is written in Rust.</p>
+                <ul class="points">
+                  <li>Built the chips in HDL from NAND up: logic gates and multiplexers, adders and the ALU, registers and RAM, then the Hack CPU and computer.</li>
+                  <li>Wrote a two-pass assembler in Rust. The first pass records label addresses, the second translates each instruction into 16-bit machine code and allocates variables from RAM address 16.</li>
+                </ul>
+                <ul class="tags" aria-label="Technologies"><li>Rust</li><li>HDL</li><li>Hack assembly</li></ul>
+              </div>
+            </article>
 
-    <section id="experience" class="section">
-      <div class="wrap">
-        <div class="sec-head"><span class="side">Side B</span><h2>Experience</h2></div>
-        <ol class="tracklist">
-          <li>
-            <span class="code">B1</span>
-            <div class="what">
-              <h3>AI Coding &amp; Technical Evaluator <span class="org">DataAnnotation</span></h3>
-              <p>Audit model-generated Python, C/C++, and JavaScript for logic errors and edge cases.</p>
-            </div>
-            <span class="when">Jun 2026 – Present</span>
-          </li>
-          <li>
-            <span class="code">B2</span>
-            <div class="what">
-              <h3>Software Engineer <span class="org">Develop for Good</span></h3>
-              <p>Rebuilt nonprofit sites with interactive maps and search, raising engagement 30% and user flow efficiency 35% while meeting ADA requirements.</p>
-            </div>
-            <span class="when">Apr 2026 – Sep 2026</span>
-          </li>
-          <li>
-            <span class="code">B3</span>
-            <div class="what">
-              <h3>Operations Technician <span class="org">Stanford University</span></h3>
-              <p>Deployed and maintained campus computing and A/V hardware, diagnosing failures and coordinating vendor repairs.</p>
-            </div>
-            <span class="when">Sep 2024 – Jun 2025</span>
-          </li>
-          <li>
-            <span class="code">B4</span>
-            <div class="what">
-              <h3>Service Delivery Analyst <span class="org">Goldman Sachs</span></h3>
-              <p>Automated role-based provisioning for 15,000+ employees across 24 offices, cutting provisioning time and overhead 80%. Built an internal knowledge-base page in HTML, CSS, and JavaScript.</p>
-            </div>
-            <span class="when">May 2019 – Sep 2022</span>
-          </li>
-          <li>
-            <span class="code">B5</span>
-            <div class="what">
-              <h3>Service Desk Analyst <span class="org">Zones, Inc.</span></h3>
-              <p>Level I support for New York State ITS across 53 departments, with Python scripts resolving 100+ ServiceNow requests a day.</p>
-            </div>
-            <span class="when">Sep 2018 – May 2019</span>
-          </li>
-        </ol>
-      </div>
-    </section>
+            <article class="feature" data-project="bounce" aria-labelledby="bounce-title" hidden>
+              <div class="feature-head">
+                <div class="track-title"><span class="code">A3</span><h3 id="bounce-title" tabindex="-1"><a href="https://github.com/stevwya77/bounce">Bounce <span class="ext" aria-hidden="true">↗</span></a></h3></div>
+                <p class="meta">Arcade game · 2026</p>
+              </div>
+              <div class="feature-visual">
+                <div class="term">
+                  <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>bounce</em></div>
+                  <video class="term-video is-wide" poster="img/bounce-poster.jpg" width="1440" height="810" muted loop playsinline preload="none" aria-label="A game of Bounce from start to finish: green balls spawn and are kept in the air with the paddle as the score climbs, lives drop as balls are missed, and the game resets to zero">
+                    <source src="img/bounce-demo.mp4" type="video/mp4">
+                    <source src="img/bounce-demo.webm" type="video/webm">
+                  </video>
+                </div>
+                <a class="term-link" href="img/bounce-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
+              </div>
+              <div class="feature-body">
+                <p>A paddle-and-ball arcade game in C++20 with SFML 3. A new ball drops in every two seconds and they never leave on their own, so keeping them all in the air gets harder the longer you last.</p>
+                <ul class="points">
+                  <li>Built the game loop on SFML 3, with delta-time movement so speed stays the same at any frame rate, and paddle collisions that score a point and play a sound.</li>
+                  <li>Shows score and lives on screen, saves the high score to a file between runs, and keeps tuning values like speeds, sizes, and volumes in one config struct.</li>
+                </ul>
+                <ul class="tags" aria-label="Technologies"><li>C++20</li><li>SFML</li><li>CMake</li></ul>
+              </div>
+            </article>
+          </div>
 
-    <div class="duo">
-    <section id="now" class="section">
-      <div class="wrap">
-        <div class="sec-head"><span class="side"><span class="rec-dot" aria-hidden="true"></span>Rec</span><h2>Now recording</h2></div>
-        <ol class="rec-list" id="now-list"></ol>
-        <noscript><p class="rec-sub">Turn on JavaScript to see what I'm working through right now.</p></noscript>
-      </div>
-    </section>
+          <ol class="tracklist more-tracks">
+            <li data-project="tracy" hidden>
+              <svg class="mini-tape tape-tracy" viewBox="0 0 400 256" aria-hidden="true" focusable="false">
+                <rect class="mt-shell" x="2" y="2" width="396" height="252" rx="14"/>
+                <g class="mt-screws"><circle cx="16" cy="16" r="5"/><circle cx="384" cy="16" r="5"/><circle cx="16" cy="240" r="5"/><circle cx="384" cy="240" r="5"/></g>
+                <rect class="mt-label" x="26" y="20" width="348" height="168" rx="6"/>
+                <path class="mt-lines" d="M44 70H356M44 94H356"/>
+                <rect class="mt-band" x="26" y="108" width="348" height="64"/>
+                <rect class="mt-window" x="108" y="114" width="184" height="52" rx="26"/>
+                <rect class="mt-tape" x="178" y="128" width="44" height="24" rx="2"/>
+                <g class="mt-reel"><circle class="mt-hub" cx="146" cy="140" r="17"/><circle class="mt-hole" cx="146" cy="140" r="7"/></g>
+                <g class="mt-reel"><circle class="mt-hub" cx="254" cy="140" r="17"/><circle class="mt-hole" cx="254" cy="140" r="7"/></g>
+                <text class="mt-side" x="66" y="153" text-anchor="middle">A</text>
+                <text class="mt-len" x="358" y="149" text-anchor="end">C-60</text>
+                <path class="mt-foot" d="M92 254 L106 206 H294 L308 254 Z"/>
+                <g class="mt-holes"><circle cx="136" cy="232" r="7"/><circle cx="264" cy="232" r="7"/><rect x="180" y="224" width="10" height="14" rx="2"/><rect x="210" y="224" width="10" height="14" rx="2"/></g>
+                <text class="mt-hand" x="48" y="64">Tracy</text></svg>
+              <span class="code">A1</span>
+              <div class="what">
+                <h3>Tracy GDB Visualizer <span class="org">1st Place · Stanford CS 194 Capstone</span></h3>
+                <p>A debugger UI that shows source code and memory layout side by side as a program runs, with an AI assistant that explains runtime errors.</p>
+                <ul class="tags" aria-label="Technologies"><li>TypeScript</li><li>React</li><li>Flask</li><li>GDB</li></ul>
+                <button class="play" type="button" data-play="tracy" aria-controls="work-stage">Watch demo</button>
+              </div>
+              <span class="when">2025</span>
+            </li>
+            <li data-project="n2t">
+              <svg class="mini-tape tape-n2t" viewBox="0 0 400 256" aria-hidden="true" focusable="false">
+                <rect class="mt-shell" x="2" y="2" width="396" height="252" rx="14"/>
+                <g class="mt-screws"><circle cx="16" cy="16" r="5"/><circle cx="384" cy="16" r="5"/><circle cx="16" cy="240" r="5"/><circle cx="384" cy="240" r="5"/></g>
+                <rect class="mt-label" x="26" y="20" width="348" height="168" rx="6"/>
+                <path class="mt-lines" d="M44 70H356M44 94H356"/>
+                <rect class="mt-band" x="26" y="108" width="348" height="64"/>
+                <rect class="mt-window" x="108" y="114" width="184" height="52" rx="26"/>
+                <rect class="mt-tape" x="178" y="128" width="44" height="24" rx="2"/>
+                <g class="mt-reel"><circle class="mt-hub" cx="146" cy="140" r="17"/><circle class="mt-hole" cx="146" cy="140" r="7"/></g>
+                <g class="mt-reel"><circle class="mt-hub" cx="254" cy="140" r="17"/><circle class="mt-hole" cx="254" cy="140" r="7"/></g>
+                <text class="mt-side" x="66" y="153" text-anchor="middle">A</text>
+                <text class="mt-len" x="358" y="149" text-anchor="end">C-60</text>
+                <path class="mt-foot" d="M92 254 L106 206 H294 L308 254 Z"/>
+                <g class="mt-holes"><circle cx="136" cy="232" r="7"/><circle cx="264" cy="232" r="7"/><rect x="180" y="224" width="10" height="14" rx="2"/><rect x="210" y="224" width="10" height="14" rx="2"/></g>
+                <text class="mt-hand" x="48" y="64">Nand2Tetris</text></svg>
+              <span class="code">A2</span>
+              <div class="what">
+                <h3><a href="https://github.com/stevwya77/nand2tetris">Nand2Tetris <span class="ext" aria-hidden="true">↗</span></a> <span class="org">A computer from first principles</span></h3>
+                <p>Built a working computer up from NAND gates, from logic gates through an ALU, RAM, and CPU in HDL, then wrote a two-pass assembler for it in Rust.</p>
+                <ul class="tags" aria-label="Technologies"><li>Rust</li><li>HDL</li><li>Hack assembly</li></ul>
+                <button class="play" type="button" data-play="n2t" aria-controls="work-stage" hidden>Watch demo</button>
+              </div>
+              <span class="when">2025</span>
+            </li>
+            <li data-project="bounce">
+              <svg class="mini-tape tape-bounce" viewBox="0 0 400 256" aria-hidden="true" focusable="false">
+                <rect class="mt-shell" x="2" y="2" width="396" height="252" rx="14"/>
+                <g class="mt-screws"><circle cx="16" cy="16" r="5"/><circle cx="384" cy="16" r="5"/><circle cx="16" cy="240" r="5"/><circle cx="384" cy="240" r="5"/></g>
+                <rect class="mt-label" x="26" y="20" width="348" height="168" rx="6"/>
+                <path class="mt-lines" d="M44 70H356M44 94H356"/>
+                <rect class="mt-band" x="26" y="108" width="348" height="64"/>
+                <rect class="mt-window" x="108" y="114" width="184" height="52" rx="26"/>
+                <rect class="mt-tape" x="178" y="128" width="44" height="24" rx="2"/>
+                <g class="mt-reel"><circle class="mt-hub" cx="146" cy="140" r="17"/><circle class="mt-hole" cx="146" cy="140" r="7"/></g>
+                <g class="mt-reel"><circle class="mt-hub" cx="254" cy="140" r="17"/><circle class="mt-hole" cx="254" cy="140" r="7"/></g>
+                <text class="mt-side" x="66" y="153" text-anchor="middle">A</text>
+                <text class="mt-len" x="358" y="149" text-anchor="end">C-60</text>
+                <path class="mt-foot" d="M92 254 L106 206 H294 L308 254 Z"/>
+                <g class="mt-holes"><circle cx="136" cy="232" r="7"/><circle cx="264" cy="232" r="7"/><rect x="180" y="224" width="10" height="14" rx="2"/><rect x="210" y="224" width="10" height="14" rx="2"/></g>
+                <text class="mt-hand" x="48" y="64">Bounce</text></svg>
+              <span class="code">A3</span>
+              <div class="what">
+                <h3><a href="https://github.com/stevwya77/bounce">Bounce <span class="ext" aria-hidden="true">↗</span></a> <span class="org">Arcade game</span></h3>
+                <p>A paddle-and-ball arcade game in C++20 with SFML, including sound, music, a config file, and saved high scores.</p>
+                <ul class="tags" aria-label="Technologies"><li>C++20</li><li>SFML</li><li>CMake</li></ul>
+                <button class="play" type="button" data-play="bounce" aria-controls="work-stage" hidden>Watch demo</button>
+              </div>
+              <span class="when">2026</span>
+            </li>
+          </ol>
+        </section>
 
-    <section id="offclock" class="section">
-      <div class="wrap">
-        <div class="sec-head"><span class="side">Bonus tracks</span><h2>Off the clock</h2></div>
-        <div class="bonus">
-          <article>
-            <span class="code">+1</span>
-            <h3>On the bench</h3>
-            <p>I tinker with electronics as a hobbyist, mostly FPGAs and software-defined radio.</p>
-          </article>
-          <article>
-            <span class="code">+2</span>
-            <h3>Retro game dev</h3>
-            <p>Old consoles had almost no memory, so every byte had to earn its place. I'm learning assembly through Game Boy emulation.</p>
-          </article>
-          <article>
-            <span class="code">+3</span>
-            <h3>Making things myself</h3>
-            <p>I join community DIY initiatives around energy sustainability, sewing, and growing my own food.</p>
-          </article>
-        </div>
+        <section id="oss" class="section panel">
+          <div class="sec-head"><h2>Open source</h2><p class="sec-note">Guest spots</p></div>
+          <!-- To add a contribution, copy one <li class="oss-item"> block and put
+               the newest at the top. Status chips: chip-done (merged, closed,
+               fixed) or chip-open (accepted, in review, in progress). -->
+          <ol class="oss-list">
+            <li class="oss-item">
+              <div class="oss-meta">
+                <h3><a href="https://github.com/AcademySoftwareFoundation/OpenImageIO">OpenImageIO <span class="ext" aria-hidden="true">↗</span></a></h3>
+                <p class="org">Academy Software Foundation</p>
+                <p class="when">Nov 2026</p>
+                <ul class="tags" aria-label="Technologies"><li>Python</li><li>GitHub Actions</li><li>C++ library</li></ul>
+              </div>
+              <ul class="oss-steps">
+                <li>
+                  <span class="chip chip-done">Closed</span>
+                  <p>Reproduced a stale memory-leak report in the Python bindings across 3 operating systems and 4 releases with GitHub Actions, which got the issue closed. <a href="https://github.com/AcademySoftwareFoundation/OpenImageIO/issues/4613">Issue #4613</a> · <a href="https://github.com/stevwya77/oiio-4613-repro">Repro repo</a></p>
+                </li>
+                <li>
+                  <span class="chip chip-open">Accepted</span>
+                  <p>Found a new crash while reproducing it: <code>ImageBuf.get_pixels(oiio.UNKNOWN)</code> silently returns <code>None</code> or segfaults. Filed it with a minimal repro, and the maintainers accepted it. <a href="https://github.com/AcademySoftwareFoundation/OpenImageIO/issues/5698">Issue #5698</a></p>
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <section id="experience" class="section panel">
+          <div class="sec-head"><span class="side-badge side-b" aria-hidden="true">B</span><h2>Experience</h2><p class="sec-note">Side B</p></div>
+          <ol class="tracklist">
+            <li>
+              <span class="code">B1</span>
+              <div class="what">
+                <h3>AI Coding &amp; Technical Evaluator <span class="org">DataAnnotation</span></h3>
+                <p>Audit model-generated Python, C/C++, and JavaScript for logic errors and edge cases.</p>
+              </div>
+              <span class="when">Jun 2026 – Present</span>
+            </li>
+            <li>
+              <span class="code">B2</span>
+              <div class="what">
+                <h3>Software Engineer <span class="org">Develop for Good</span></h3>
+                <p>Rebuilt nonprofit sites with interactive maps and search, raising engagement 30% and user flow efficiency 35% while meeting ADA requirements.</p>
+              </div>
+              <span class="when">Apr 2026 – Sep 2026</span>
+            </li>
+            <li>
+              <span class="code">B3</span>
+              <div class="what">
+                <h3>Operations Technician <span class="org">Stanford University</span></h3>
+                <p>Deployed and maintained campus computing and A/V hardware, diagnosing failures and coordinating vendor repairs.</p>
+              </div>
+              <span class="when">Sep 2024 – Jun 2025</span>
+            </li>
+            <li>
+              <span class="code">B4</span>
+              <div class="what">
+                <h3>Service Delivery Analyst <span class="org">Goldman Sachs</span></h3>
+                <p>Automated role-based provisioning for 15,000+ employees across 24 offices, cutting provisioning time and overhead 80%. Built an internal knowledge-base page in HTML, CSS, and JavaScript.</p>
+              </div>
+              <span class="when">May 2019 – Sep 2022</span>
+            </li>
+            <li>
+              <span class="code">B5</span>
+              <div class="what">
+                <h3>Service Desk Analyst <span class="org">Zones, Inc.</span></h3>
+                <p>Level I support for New York State ITS across 53 departments, with Python scripts resolving 100+ ServiceNow requests a day.</p>
+              </div>
+              <span class="when">Sep 2018 – May 2019</span>
+            </li>
+          </ol>
+        </section>
+
+        <section id="offclock" class="section panel">
+          <div class="sec-head"><h2>Off the clock</h2><p class="sec-note">Bonus tracks</p></div>
+          <div class="bonus">
+            <article>
+              <span class="code">+1</span>
+              <h3>On the bench</h3>
+              <p>I tinker with electronics as a hobbyist, mostly FPGAs and software-defined radio.</p>
+            </article>
+            <article>
+              <span class="code">+2</span>
+              <h3>Retro game dev</h3>
+              <p>Old consoles had almost no memory, so every byte had to earn its place. I'm learning assembly through Game Boy emulation.</p>
+            </article>
+            <article>
+              <span class="code">+3</span>
+              <h3>Making things myself</h3>
+              <p>I join community DIY initiatives around energy sustainability, sewing, and growing my own food.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="credits" class="section panel">
+          <div class="sec-head"><h2>Skills and education</h2><p class="sec-note">Credits</p></div>
+          <div class="credits">
+            <dl class="skills">
+              <div><dt>Languages</dt><dd>Python, TypeScript, JavaScript, Java, C/C++, SQL, R</dd></div>
+              <div><dt>Web</dt><dd>React, Next.js, Node.js, Flask, REST APIs, HTML/CSS</dd></div>
+              <div><dt>Systems</dt><dd>Linux, AWS, Active Directory, IAM, TCP/IP, Elasticsearch</dd></div>
+              <div><dt>Tools and data</dt><dd>Git, GDB, Postman, pandas, NumPy, scikit-learn</dd></div>
+              <div><dt>Security</dt><dd>Cryptography and password hashing, John the Ripper, SSH, OSINT, Shodan, CVE research, steganography, phishing and social engineering analysis</dd></div>
+              <div><dt>AI and open source</dt><dd>Claude Code, custom agent skills, eval harnesses, GitHub Actions, GitHub CLI, issue triage, bug reproduction, pull request workflow</dd></div>
+            </dl>
+            <ul class="edu">
+              <li><strong>Stanford University</strong><span>Student, B.S. Computer Science, Computational Biology Track</span></li>
+              <li><strong>Schenectady County Community College</strong><span>A.S. Computer Science · 2022</span></li>
+              <li><strong>Certifications</strong><span>AWS Certified Cloud Practitioner (CLF-C02) and CompTIA Security+ CE · 2026</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="contact" class="section panel contact">
+          <div class="sec-head"><h2>Contact</h2><p class="sec-note">Outro</p></div>
+          <div class="contact-row">
+          <p class="contact-lede">The fastest way to reach me is email. I'm based in Queens and open to on-site, hybrid, or remote work in the New York area.</p>
+          <div class="actions">
+            <a class="btn btn-primary btn-big js-email" href="#contact" data-u="stephwyatt08" data-d="gmail.com" data-show>Email me</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/stephanie-wyatt25">LinkedIn</a>
+            <a class="btn btn-ghost" href="https://github.com/stevwya77">GitHub</a>
+          </div>
+          </div>
+        </section>
       </div>
-    </section>
     </div>
-
-    <section id="credits" class="section">
-      <div class="wrap">
-        <div class="sec-head"><span class="side">Credits</span><h2>Skills and education</h2></div>
-        <div class="skills">
-          <div>
-            <h3>Languages</h3>
-            <ul class="tags"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>C/C++</li><li>SQL</li><li>R</li></ul>
-          </div>
-          <div>
-            <h3>Web</h3>
-            <ul class="tags"><li>React</li><li>Next.js</li><li>Node.js</li><li>Flask</li><li>REST APIs</li><li>HTML/CSS</li></ul>
-          </div>
-          <div>
-            <h3>Systems</h3>
-            <ul class="tags"><li>Linux</li><li>AWS</li><li>Active Directory</li><li>IAM</li><li>TCP/IP</li><li>Elasticsearch</li></ul>
-          </div>
-          <div>
-            <h3>Tools and data</h3>
-            <ul class="tags"><li>Git</li><li>GDB</li><li>Postman</li><li>pandas</li><li>NumPy</li><li>scikit-learn</li></ul>
-          </div>
-        </div>
-        <ul class="edu">
-          <li><strong>Stanford University</strong><span>B.S. Computer Science, Computational Biology Track · Expected June 2027</span></li>
-          <li><strong>Schenectady County Community College</strong><span>A.S. Computer Science · 2022</span></li>
-          <li><strong>Certifications</strong><span>AWS Certified Cloud Practitioner (CLF-C02) and CompTIA Security+ CE · 2026</span></li>
-          <li><strong>CodePath AI 301</strong><span>Open Source Capstone · In progress</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact">
-      <div class="wrap">
-        <div class="sec-head"><span class="side">Outro</span><h2>Contact</h2></div>
-        <p class="lede">The fastest way to reach me is email. I'm based in Queens and open to on-site, hybrid, or remote work in the New York area.</p>
-        <div class="actions">
-          <a class="btn btn-primary js-email" href="#contact" data-u="stephwyatt08" data-d="gmail.com" data-show>Email me</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/stephanie-wyatt25">LinkedIn</a>
-          <a class="btn btn-ghost" href="https://github.com/stevwya77">GitHub</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
     <div class="wrap footer-inner"><span>SW-077</span><span>℗ 2026 Stephanie Wyatt</span></div>
   </footer>
-  <script src="progress.js?v=2"></script>
   <dialog class="viewer" aria-labelledby="viewer-title">
     <div class="viewer-window">
       <div class="term-bar viewer-bar"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><em id="viewer-title">demo</em>
@@ -346,29 +443,6 @@
       if (a.hasAttribute('data-show')) a.textContent = e;
     });
 
-    // Highlight the side-nav entry for the section currently in view.
-    (function () {
-      var links = Array.prototype.slice.call(document.querySelectorAll('.side-nav a'));
-      if (!links.length) return;
-      var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
-      var ticking = false;
-      function update() {
-        ticking = false;
-        var line = window.innerHeight * 0.35, current = 0;
-        var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-        sections.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= line) current = i; });
-        if (atBottom) current = sections.length - 1;
-        // Sections sharing a row (Now recording + Off the clock on desktop) light up together.
-        var top = sections[current] ? sections[current].getBoundingClientRect().top : 0;
-        links.forEach(function (a, i) {
-          var same = sections[i] && Math.abs(sections[i].getBoundingClientRect().top - top) < 4;
-          if (same) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
-        });
-      }
-      window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
-      window.addEventListener('resize', update);
-      update();
-    })();
   </script>
 </body>
 </html>
