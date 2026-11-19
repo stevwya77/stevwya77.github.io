@@ -4,11 +4,8 @@ Open `index.html` in a browser to preview it.
 
 Every push to `main` deploys to GitHub Pages through `.github/workflows/deploy.yml`.
 
-The earlier cassette J-card design (Astro) lives on the `jcard` branch.
+The earlier cassette J-card design (Astro) is archived as the `archive/jcard` tag. Check it out with `git checkout archive/jcard`.
 
-## Updating "Now recording"
+## Adding an open source contribution
 
-The progress bars come from the list at the top of `progress.js`.
-
-- Courses have `start` and `end` dates and fill automatically each day. The `weeks` list sets the topic and what's due for each week.
-- Personal projects use `percent` (0-100) and an optional `note` instead of dates. Change the number as you go.
+The Open source panel is a list in `index.html` (`<ol class="oss-list">`). Copy one `<li class="oss-item">` block, put the newest at the top, and set each step's status chip to `chip-done` (merged, closed, fixed) or `chip-open` (accepted, in review, in progress).
