@@ -250,6 +250,7 @@ h3 { font-size: 20px; margin: 0 0 4px; line-height: 1.3; font-weight: 650; }
 .term-bar em { margin-left: 8px; font-style: normal; font-family: var(--font-code); font-size: 12px; color: #908caa; }
 .term-video { display: block; width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #191724; }
 .term-video.is-wide { aspect-ratio: 16 / 9; }
+.term-video.is-square { aspect-ratio: 1 / 1; }
 .term-link { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; }
 .term-link:hover { text-decoration: underline; }
 
@@ -261,6 +262,7 @@ h3 { font-size: 20px; margin: 0 0 4px; line-height: 1.3; font-weight: 650; }
 .viewer-close { margin-left: auto; width: 32px; height: 32px; display: grid; place-items: center; font: 400 24px/1 var(--font); color: #e0def4; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14); border-radius: 8px; cursor: pointer; }
 .viewer-close:hover { background: rgba(255, 255, 255, .18); }
 .viewer-close:focus-visible { outline: 2px solid #c4a7e7; outline-offset: 2px; }
+.viewer.is-square { width: min(820px, calc(100vw - 32px), calc(100vh - 110px)); }
 .viewer-video { display: block; width: 100%; height: auto; max-height: calc(100vh - 120px); background: #000; object-fit: contain; }
 .viewer[open] .viewer-window { animation: viewer-in .22s cubic-bezier(.2, .8, .2, 1); }
 .viewer[open]::backdrop { animation: viewer-fade .22s ease; }
@@ -319,25 +321,25 @@ h3 { font-size: 20px; margin: 0 0 4px; line-height: 1.3; font-weight: 650; }
 .mt-hand { font-family: var(--font-hand); font-size: 40px; fill: var(--t-pen); }
 .tape-tracy  { --shell: #26233a; --band: #b4637a; }
 .tape-n2t    { --shell: #d7827e; --band: #ea9d34; }
-.tape-bounce { --shell: #e4dcd3; --band: #286983; }
+.tape-arcade { --shell: #e4dcd3; --band: #286983; }
 @media (prefers-reduced-motion: reduce) { .mini-tape { transition: none; } .is-playable:hover .mini-tape { transform: rotate(-1.5deg); } }
 
 /* Swap animation. Each project keeps its own name, so cards slide to their new
    places. Names come from each project's data-project key in projects.js:
    project-* for the two cards trading places, slide-* for rows that only move,
    slide-after for the section below the list. */
-::view-transition-group(project-tracy), ::view-transition-group(project-n2t), ::view-transition-group(project-bounce),
-::view-transition-group(slide-tracy), ::view-transition-group(slide-n2t), ::view-transition-group(slide-bounce),
+::view-transition-group(project-tracy), ::view-transition-group(project-n2t), ::view-transition-group(project-arcade),
+::view-transition-group(slide-tracy), ::view-transition-group(slide-n2t), ::view-transition-group(slide-arcade),
 ::view-transition-group(slide-after) {
   animation-duration: .6s; animation-timing-function: cubic-bezier(.45, 0, .2, 1); }
-::view-transition-group(project-tracy), ::view-transition-group(project-n2t), ::view-transition-group(project-bounce) {
+::view-transition-group(project-tracy), ::view-transition-group(project-n2t), ::view-transition-group(project-arcade) {
   overflow: clip; border-radius: 10px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--rule); }
-::view-transition-image-pair(project-tracy), ::view-transition-image-pair(project-n2t), ::view-transition-image-pair(project-bounce) { isolation: auto; }
-::view-transition-old(project-tracy), ::view-transition-old(project-n2t), ::view-transition-old(project-bounce),
-::view-transition-new(project-tracy), ::view-transition-new(project-n2t), ::view-transition-new(project-bounce) {
+::view-transition-image-pair(project-tracy), ::view-transition-image-pair(project-n2t), ::view-transition-image-pair(project-arcade) { isolation: auto; }
+::view-transition-old(project-tracy), ::view-transition-old(project-n2t), ::view-transition-old(project-arcade),
+::view-transition-new(project-tracy), ::view-transition-new(project-n2t), ::view-transition-new(project-arcade) {
   width: 100%; height: 100%; object-fit: none; object-position: top left; mix-blend-mode: normal; }
-::view-transition-old(project-tracy), ::view-transition-old(project-n2t), ::view-transition-old(project-bounce) { animation: project-out .2s ease-out both; }
-::view-transition-new(project-tracy), ::view-transition-new(project-n2t), ::view-transition-new(project-bounce) { animation: project-in .38s ease-out .18s both; }
+::view-transition-old(project-tracy), ::view-transition-old(project-n2t), ::view-transition-old(project-arcade) { animation: project-out .2s ease-out both; }
+::view-transition-new(project-tracy), ::view-transition-new(project-n2t), ::view-transition-new(project-arcade) { animation: project-in .38s ease-out .18s both; }
 ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
 @keyframes project-out { to { opacity: 0; } }
 @keyframes project-in { from { opacity: 0; } }

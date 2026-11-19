@@ -27,7 +27,10 @@
     }
     video.poster = cardVideo ? cardVideo.getAttribute('poster') || '' : '';
     video.setAttribute('aria-label', cardVideo ? cardVideo.getAttribute('aria-label') || '' : '');
-    video.style.aspectRatio = cardVideo && cardVideo.classList.contains('is-wide') ? '16 / 9' : '1440 / 900';
+    var square = !!(cardVideo && cardVideo.classList.contains('is-square'));
+    var wide = !!(cardVideo && cardVideo.classList.contains('is-wide'));
+    video.style.aspectRatio = square ? '1 / 1' : wide ? '16 / 9' : '1440 / 900';
+    dialog.classList.toggle('is-square', square);
     title.textContent = label ? label.textContent : 'demo';
     video.load();
 

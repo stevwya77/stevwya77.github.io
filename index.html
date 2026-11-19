@@ -14,7 +14,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/covered-by-your-grace-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=18">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -189,28 +189,29 @@
               </div>
             </article>
 
-            <article class="feature" data-project="bounce" aria-labelledby="bounce-title" hidden>
+            <article class="feature" data-project="arcade" aria-labelledby="arcade-title" hidden>
               <div class="feature-head">
-                <div class="track-title"><span class="code">A3</span><h3 id="bounce-title" tabindex="-1"><a href="https://github.com/stevwya77/bounce">Bounce <span class="ext" aria-hidden="true">↗</span></a></h3></div>
-                <p class="meta">Arcade game · 2026</p>
+                <div class="track-title"><span class="code">A3</span><h3 id="arcade-title" tabindex="-1"><a href="https://github.com/stevwya77/arcade">Arcade Engine <span class="ext" aria-hidden="true">↗</span></a></h3></div>
+                <p class="meta">2D game engine in C++20 · 2026</p>
               </div>
               <div class="feature-visual">
                 <div class="term">
-                  <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>bounce</em></div>
-                  <video class="term-video is-wide" poster="img/bounce-poster.jpg" width="1440" height="810" muted loop playsinline preload="none" aria-label="A game of Bounce from start to finish: green balls spawn and are kept in the air with the paddle as the score climbs, lives drop as balls are missed, and the game resets to zero">
-                    <source src="img/bounce-demo.mp4" type="video/mp4">
-                    <source src="img/bounce-demo.webm" type="video/webm">
+                  <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><em>arcade</em></div>
+                  <video class="term-video is-square" poster="img/arcade-poster.jpg" width="800" height="800" muted loop playsinline preload="none" aria-label="Bounce running on Arcade Engine with bloom and a CRT scanline effect: the paddle keeps a growing number of balls in the air as the score climbs, the pause overlay opens with Resume, Restart, Menu, and Quit buttons that highlight under the cursor, play resumes, and a restart resets the score">
+                    <source src="img/arcade-demo.mp4" type="video/mp4">
+                    <source src="img/arcade-demo.webm" type="video/webm">
                   </video>
                 </div>
-                <a class="term-link" href="img/bounce-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
+                <a class="term-link" href="img/arcade-demo.mp4">Watch full size <span class="ext" aria-hidden="true">↗</span></a>
               </div>
               <div class="feature-body">
-                <p>A paddle-and-ball arcade game in C++20 with SFML 3. A new ball drops in every two seconds and they never leave on their own, so keeping them all in the air gets harder the longer you last.</p>
+                <p>A small 2D game engine in C++20 on SFML 3. It runs the window, frame loop, input, audio, saves, and GUI, so a game only has to supply its scenes. Bounce, the first game built on it, shows it in action.</p>
                 <ul class="points">
-                  <li>Built the game loop on SFML 3, with delta-time movement so speed stays the same at any frame rate, and paddle collisions that score a point and play a sound.</li>
-                  <li>Shows score and lives on screen, saves the high score to a file between runs, and keeps tuning values like speeds, sizes, and volumes in one config struct.</li>
+                  <li>Built action-based input that binds keys, mouse buttons, and gamepad buttons or stick axes to the same game action, with Xbox and PlayStation layouts mapped to shared button names.</li>
+                  <li>Wrote a post-processing chain that renders each frame off-screen and runs it through GLSL shaders: bloom (downsample, two-pass Gaussian blur, additive blend) and a CRT monitor look.</li>
+                  <li>Added scenes with queued switching, a pause overlay, JSON config and saves, and managers for resources, audio, screenshots, and timing.</li>
                 </ul>
-                <ul class="tags" aria-label="Technologies"><li>C++20</li><li>SFML</li><li>CMake</li></ul>
+                <ul class="tags" aria-label="Technologies"><li>C++20</li><li>SFML 3</li><li>GLSL</li><li>TGUI</li><li>CMake</li></ul>
               </div>
             </article>
           </div>
@@ -266,8 +267,8 @@
               </div>
               <span class="when">2025</span>
             </li>
-            <li data-project="bounce">
-              <svg class="mini-tape tape-bounce" viewBox="0 0 400 256" aria-hidden="true" focusable="false">
+            <li data-project="arcade">
+              <svg class="mini-tape tape-arcade" viewBox="0 0 400 256" aria-hidden="true" focusable="false">
                 <rect class="mt-shell" x="2" y="2" width="396" height="252" rx="14"/>
                 <g class="mt-screws"><circle cx="16" cy="16" r="5"/><circle cx="384" cy="16" r="5"/><circle cx="16" cy="240" r="5"/><circle cx="384" cy="240" r="5"/></g>
                 <rect class="mt-label" x="26" y="20" width="348" height="168" rx="6"/>
@@ -281,13 +282,13 @@
                 <text class="mt-len" x="358" y="149" text-anchor="end">C-60</text>
                 <path class="mt-foot" d="M92 254 L106 206 H294 L308 254 Z"/>
                 <g class="mt-holes"><circle cx="136" cy="232" r="7"/><circle cx="264" cy="232" r="7"/><rect x="180" y="224" width="10" height="14" rx="2"/><rect x="210" y="224" width="10" height="14" rx="2"/></g>
-                <text class="mt-hand" x="48" y="64">Bounce</text></svg>
+                <text class="mt-hand" x="48" y="64">Arcade</text></svg>
               <span class="code">A3</span>
               <div class="what">
-                <h3><a href="https://github.com/stevwya77/bounce">Bounce <span class="ext" aria-hidden="true">↗</span></a> <span class="org">Arcade game</span></h3>
-                <p>A paddle-and-ball arcade game in C++20 with SFML, including sound, music, a config file, and saved high scores.</p>
-                <ul class="tags" aria-label="Technologies"><li>C++20</li><li>SFML</li><li>CMake</li></ul>
-                <button class="play" type="button" data-play="bounce" aria-controls="work-stage" hidden>Watch demo</button>
+                <h3><a href="https://github.com/stevwya77/arcade">Arcade Engine <span class="ext" aria-hidden="true">↗</span></a> <span class="org">2D game engine in C++20</span></h3>
+                <p>A C++20 game engine on SFML 3 with action-based input, GLSL bloom and CRT effects, and scenes. Bounce is the first game built on it.</p>
+                <ul class="tags" aria-label="Technologies"><li>C++20</li><li>SFML 3</li><li>GLSL</li></ul>
+                <button class="play" type="button" data-play="arcade" aria-controls="work-stage" hidden>Watch demo</button>
               </div>
               <span class="when">2026</span>
             </li>
@@ -434,7 +435,7 @@
     </div>
   </dialog>
   <script src="projects.js"></script>
-  <script src="viewer.js"></script>
+  <script src="viewer.js?v=2"></script>
   <script>
     // Build mailto links at runtime so the address never appears whole in the HTML.
     document.querySelectorAll('.js-email').forEach(function (a) {
